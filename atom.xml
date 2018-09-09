@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-09-09T02:07:54.955Z</updated>
+  <updated>2018-09-09T14:22:20.643Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何给Hexo正确添加RSS订阅</title>
+    <link href="http://yoursite.com/2018/09/09/hexo-rss/"/>
+    <id>http://yoursite.com/2018/09/09/hexo-rss/</id>
+    <published>2018-09-09T13:36:23.000Z</published>
+    <updated>2018-09-09T14:22:20.643Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="安装feed插件"><a href="#安装feed插件" class="headerlink" title="安装feed插件"></a>安装feed插件</h1><ol><li>本地hexo目录下运行<code>git bash here</code></li><li>输入指令<code>npm install hexo-generator-feed</code></li><li>等待安装完成</li></ol><h1 id="添加配置文件"><a href="#添加配置文件" class="headerlink" title="添加配置文件"></a>添加配置文件</h1><ol><li><p>打开hexo目录下配置文件_config.yml，末尾添加以下配置</p><blockquote><pre><code># Extensions## Plugins: http://hexo.io/plugins/#RSS订阅plugin:- hexo-generator-feed#Feed Atomfeed:type: atompath: atom.xmllimit: 20</code></pre></blockquote></li><li><p>打开主题配置文件_config.yml,搜索rss，添加配置</p></li></ol><p><code>rss: /atom.xml</code></p><h1 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h1><p><code>hexo s</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;安装feed插件&quot;&gt;&lt;a href=&quot;#安装feed插件&quot; class=&quot;headerlink&quot; title=&quot;安装feed插件&quot;&gt;&lt;/a&gt;安装feed插件&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;本地hexo目录下运行&lt;code&gt;git bash here&lt;/code&gt;&lt;/l
+      
+    
+    </summary>
+    
+      <category term="Hexo搭建" scheme="http://yoursite.com/categories/Hexo%E6%90%AD%E5%BB%BA/"/>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+      <category term="rss" scheme="http://yoursite.com/tags/rss/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
