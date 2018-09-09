@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Jeremy&#39;s Blog</title>
+  
+  <subtitle>艰险我奋进，困乏我多情</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-09-09T02:07:54.955Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Jeremy</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2018/09/09/hello-world/"/>
+    <id>http://yoursite.com/2018/09/09/hello-world/</id>
+    <published>2018-09-08T16:12:44.000Z</published>
+    <updated>2018-09-09T02:07:54.955Z</updated>
+    
+    <content type="html"><![CDATA[<center><br><br>姓名：吴健伟/Jeremy<br><br>生日：1997/03/20<br><br>性别：♂<br><br>就读：山东科技大学（SDUST）<br><br>特征：轻微强迫症、积极废人之一<br><br>爱好：Coding、摄影<br><br>理想：用心做更好用的系统和软件，超越ios的用户体验<br><br>座右铭：Enjoy what you love and it will give all you want<br><br>Mail：<a href="mailto:wujianwei0320@qq.com" target="_blank" rel="noopener">wujianwei0320@qq.com</a> / <a href="mailto:wujianwei0320@gmail.com" target="_blank" rel="noopener">wujianwei0320@gmail.com</a><br><br>QQ ：380576406<br><br>Wechat : wujianwei97<br><img src="https://i.imgur.com/OBmthZG.jpg" width="150" height="150"><br></center>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;center&gt;&lt;br&gt;&lt;br&gt;姓名：吴健伟/Jeremy&lt;br&gt;&lt;br&gt;生日：1997/03/20&lt;br&gt;&lt;br&gt;性别：♂&lt;br&gt;&lt;br&gt;就读：山东科技大学（SDUST）&lt;br&gt;&lt;br&gt;特征：轻微强迫症、积极废人之一&lt;br&gt;&lt;br&gt;爱好：Coding、摄影&lt;br&gt;&lt;br&gt;理想：
+      
+    
+    </summary>
+    
+      <category term="杂聊" scheme="http://yoursite.com/categories/%E6%9D%82%E8%81%8A/"/>
+    
+    
+      <category term="我" scheme="http://yoursite.com/tags/%E6%88%91/"/>
+    
+  </entry>
+  
+</feed>
