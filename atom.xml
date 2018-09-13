@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-09-09T14:22:20.643Z</updated>
+  <updated>2018-09-11T15:51:35.352Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>因特网的有关概念</title>
+    <link href="http://yoursite.com/2018/09/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <id>http://yoursite.com/2018/09/11/计算机网络/</id>
+    <published>2018-09-11T15:47:42.843Z</published>
+    <updated>2018-09-11T15:51:35.352Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="因特网发展的三个阶段"><a href="#因特网发展的三个阶段" class="headerlink" title="因特网发展的三个阶段"></a>因特网发展的三个阶段</h2><h3 id="第一阶段：从单个网络ARPANET向互联网发展的过程"><a href="#第一阶段：从单个网络ARPANET向互联网发展的过程" class="headerlink" title="第一阶段：从单个网络ARPANET向互联网发展的过程"></a>第一阶段：从单个网络ARPANET向互联网发展的过程</h3><p>ARPANET：</p><ul><li>1969年美国国防部创建的第一个分组交换网</li><li>1983年TCP/IP协议成为ARPANET上的标准协议，因特网诞生</li><li>1990年关闭<h3 id="第二阶段：三级结构的因特网"><a href="#第二阶段：三级结构的因特网" class="headerlink" title="第二阶段：三级结构的因特网"></a>第二阶段：三级结构的因特网</h3>1985年美国国家科学基金会：NSFNET<br>三级计算机网络：</li></ul><ul><li>主干网</li><li>地区网</li><li>校园网（或企业网）<h3 id="第三阶段：多层次ISP结构因特网"><a href="#第三阶段：多层次ISP结构因特网" class="headerlink" title="第三阶段：多层次ISP结构因特网"></a>第三阶段：多层次ISP结构因特网</h3></li><li>第一层：服务面积最大(一般是国家范围)，拥有高速主干网</li><li>NAP </li><li>第二层：第一层ISP的用户</li><li>第三层：又称本地ISP，拥有本地范围的网络<blockquote><p>ISP: (Internet Service Provider) 互联网服务提供者（商）<br>NAP:网络接入点<strong>NAP</strong> (Network Access Point)：分散主干网流量，又称对等点（peering point）</p></blockquote></li></ul><h2 id="英特网的组成"><a href="#英特网的组成" class="headerlink" title="英特网的组成"></a>英特网的组成</h2><p>因特网的<strong>边缘部分</strong>：由所有连接在因特网上的<strong>主机</strong>组成（通信和资源共享）<br>因特网的<strong>核心部分</strong>：由大量网络和连接这些网络的<strong>路由器（router）</strong>组成，为边缘部分提供服务（连通性和交换）</p><blockquote><p>另一种分法：资源子网，通信子网</p></blockquote><hr><h3 id="边缘部分通信方式："><a href="#边缘部分通信方式：" class="headerlink" title="边缘部分通信方式："></a>边缘部分通信方式：</h3><ol><li>客户服务器方式（C/S）:Client/Server，都是指通信中所涉及的两个应用进程</li></ol><ul><li>客户程序特点：<ul><li>客户程序必须知道服务器程序的地址</li><li>不需要特殊的硬件和复杂的操作系统</li></ul></li><li>服务程序特点：<ul><li>可同时处理多个远地或本地客户的请求</li><li>系统启动后自动调用并一直不断的运行着</li><li>一般需要强大的硬件和高级的操作系统支持</li></ul></li></ul><ol start="2"><li>对等方式（P2P）:Peer to Peer，指两个主机在通信是并不区分哪一个是服务请求方还是服务提供方，本质上看仍是C/S方式，只是P2P中的每一个主机既是客户又是服务器</li></ol><h3 id="核心部分三种交换方式："><a href="#核心部分三种交换方式：" class="headerlink" title="核心部分三种交换方式："></a>核心部分三种交换方式：</h3><blockquote><p>路由器：实现分组交换的关键构建，转发收到的分组<br>交换（switching）按照某种方式动态地分配传输线路的资源</p><ol><li>电路交换：面向连接，三个阶段：建立–&gt;保持–&gt;释放<br> 特点：在通话的全部时间内，通话的两个用户始终占用端到端的通信资源<ul><li>通话前先拨号建立连接（经过一个或多个交换机）</li><li>通话过程中，通信双方一直占用所建立的连接</li><li>通话结束后，挂机释放连接</li></ul></li></ol></blockquote><ol start="2"><li><p>报文交换</p></li><li><p>分组交换</p><ul><li>在发送端，先把较长的报文划分成较短的固定长度的数据端</li><li>每一个数据段前面添加上首部构成分组</li><li>依次把各分组发送到接收端</li><li><p>接收端剥去首部，抽出数据部分，还原成报文</p><blockquote><p>每一个分组的首部都含有地址等控制信息<br>结点交换机根据收到的分组的首部中的地址信息，把分组转发到下一个结点交换机</p></blockquote><p>路由器处理分组的过程：</p></li><li>把收到的分组先放入缓存；</li><li>查找转发表，找出到某个目的地址应从哪个端口转发；</li><li><p>把分组送到适当的端口转发出去</p><p>优点：</p></li><li>高效    动态分配传输带宽，对通信链路是逐段占用。 </li><li>灵活    以分组为传送单位和查找路由。</li><li>迅速    不必先建立连接就能向其他主机发送分组。</li><li><p>可靠    保证可靠性的网络协议；分布式的路由选择协议使网络有很好的生存性。   </p><p>缺点：</p></li><li>分组在各结点存储转发时需要排队，这就会造成一定的时延。</li><li>分组必须携带的首部（里面有必不可少的控制信息）也造成了一定的开销。</li></ul></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;因特网发展的三个阶段&quot;&gt;&lt;a href=&quot;#因特网发展的三个阶段&quot; class=&quot;headerlink&quot; title=&quot;因特网发展的三个阶段&quot;&gt;&lt;/a&gt;因特网发展的三个阶段&lt;/h2&gt;&lt;h3 id=&quot;第一阶段：从单个网络ARPANET向互联网发展的过程&quot;&gt;&lt;a hr
+      
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="计算机网络" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>如何给Hexo正确添加RSS订阅</title>
