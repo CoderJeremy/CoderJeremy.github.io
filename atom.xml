@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-09-11T15:51:35.352Z</updated>
+  <updated>2018-09-14T14:13:07.576Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>NexT 6 添加字数和阅读时间统计</title>
+    <link href="http://yoursite.com/2018/09/14/NexT%206%20%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%95%B0%E5%92%8C%E9%98%85%E8%AF%BB%E6%97%B6%E9%97%B4%E7%BB%9F%E8%AE%A1/"/>
+    <id>http://yoursite.com/2018/09/14/NexT 6 添加字数和阅读时间统计/</id>
+    <published>2018-09-14T14:04:25.000Z</published>
+    <updated>2018-09-14T14:13:07.576Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="打开hexo目录，运行git-bush，安装插件"><a href="#打开hexo目录，运行git-bush，安装插件" class="headerlink" title="打开hexo目录，运行git bush，安装插件"></a>打开hexo目录，运行git bush，安装插件</h2><p><code>$ npm install hexo-symbols-count-time --save</code></p><h2 id="修改博客配置文件，添加以下代码"><a href="#修改博客配置文件，添加以下代码" class="headerlink" title="修改博客配置文件，添加以下代码"></a>修改博客配置文件，添加以下代码</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line"><span class="attr">symbols:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">time:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">total_symbols:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">total_time:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure><h2 id="修改主题配置文件，搜索symbols-count-time，快速定位，修改成以下代码"><a href="#修改主题配置文件，搜索symbols-count-time，快速定位，修改成以下代码" class="headerlink" title="修改主题配置文件，搜索symbols_count_time，快速定位，修改成以下代码"></a>修改主题配置文件，搜索symbols_count_time，快速定位，修改成以下代码</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line"><span class="attr">separated_meta:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">item_text_post:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">item_text_total:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">awl:</span> <span class="number">4</span></span><br><span class="line"><span class="attr">wpm:</span> <span class="number">275</span></span><br></pre></td></tr></table></figure><h2 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;打开hexo目录，运行git-bush，安装插件&quot;&gt;&lt;a href=&quot;#打开hexo目录，运行git-bush，安装插件&quot; class=&quot;headerlink&quot; title=&quot;打开hexo目录，运行git bush，安装插件&quot;&gt;&lt;/a&gt;打开hexo目录，运行git
+      
+    
+    </summary>
+    
+      <category term="Hexo搭建" scheme="http://yoursite.com/categories/Hexo%E6%90%AD%E5%BB%BA/"/>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+      <category term="NexT" scheme="http://yoursite.com/tags/NexT/"/>
+    
+  </entry>
   
   <entry>
     <title>因特网的有关概念</title>
@@ -46,7 +73,7 @@
     <link href="http://yoursite.com/2018/09/09/hexo-rss/"/>
     <id>http://yoursite.com/2018/09/09/hexo-rss/</id>
     <published>2018-09-09T13:36:23.000Z</published>
-    <updated>2018-09-09T14:22:20.643Z</updated>
+    <updated>2018-09-14T14:01:03.933Z</updated>
     
     <content type="html"><![CDATA[<h1 id="安装feed插件"><a href="#安装feed插件" class="headerlink" title="安装feed插件"></a>安装feed插件</h1><ol><li>本地hexo目录下运行<code>git bash here</code></li><li>输入指令<code>npm install hexo-generator-feed</code></li><li>等待安装完成</li></ol><h1 id="添加配置文件"><a href="#添加配置文件" class="headerlink" title="添加配置文件"></a>添加配置文件</h1><ol><li><p>打开hexo目录下配置文件_config.yml，末尾添加以下配置</p><blockquote><pre><code># Extensions## Plugins: http://hexo.io/plugins/#RSS订阅plugin:- hexo-generator-feed#Feed Atomfeed:type: atompath: atom.xmllimit: 20</code></pre></blockquote></li><li><p>打开主题配置文件_config.yml,搜索rss，添加配置</p></li></ol><p><code>rss: /atom.xml</code></p><h1 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h1><p><code>hexo s</code></p>]]></content>
     
@@ -63,7 +90,7 @@
       <category term="Hexo搭建" scheme="http://yoursite.com/categories/Hexo%E6%90%AD%E5%BB%BA/"/>
     
     
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
     
       <category term="rss" scheme="http://yoursite.com/tags/rss/"/>
     
