@@ -3,11 +3,11 @@
   <title>Jeremy&#39;s Blog</title>
   
   <subtitle>艰险我奋进，困乏我多情</subtitle>
-  <link href="/blog/atom.xml" rel="self"/>
+  <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/blog/"/>
+  <link href="http://yoursite.com/"/>
   <updated>2018-09-14T14:13:07.576Z</updated>
-  <id>http://yoursite.com/blog/</id>
+  <id>http://yoursite.com/</id>
   
   <author>
     <name>Jeremy</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>NexT 6 添加字数和阅读时间统计</title>
-    <link href="http://yoursite.com/blog/2018/09/14/NexT%206%20%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%95%B0%E5%92%8C%E9%98%85%E8%AF%BB%E6%97%B6%E9%97%B4%E7%BB%9F%E8%AE%A1/"/>
-    <id>http://yoursite.com/blog/2018/09/14/NexT 6 添加字数和阅读时间统计/</id>
+    <link href="http://yoursite.com/2018/09/14/NexT%206%20%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%95%B0%E5%92%8C%E9%98%85%E8%AF%BB%E6%97%B6%E9%97%B4%E7%BB%9F%E8%AE%A1/"/>
+    <id>http://yoursite.com/2018/09/14/NexT 6 添加字数和阅读时间统计/</id>
     <published>2018-09-14T14:04:25.000Z</published>
     <updated>2018-09-14T14:13:07.576Z</updated>
     
@@ -34,19 +34,19 @@
     
     </summary>
     
-      <category term="Hexo搭建" scheme="http://yoursite.com/blog/categories/Hexo%E6%90%AD%E5%BB%BA/"/>
+      <category term="Hexo搭建" scheme="http://yoursite.com/categories/Hexo%E6%90%AD%E5%BB%BA/"/>
     
     
-      <category term="Hexo" scheme="http://yoursite.com/blog/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
     
-      <category term="NexT" scheme="http://yoursite.com/blog/tags/NexT/"/>
+      <category term="NexT" scheme="http://yoursite.com/tags/NexT/"/>
     
   </entry>
   
   <entry>
     <title>因特网的有关概念</title>
-    <link href="http://yoursite.com/blog/2018/09/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    <id>http://yoursite.com/blog/2018/09/11/计算机网络/</id>
+    <link href="http://yoursite.com/2018/09/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <id>http://yoursite.com/2018/09/11/计算机网络/</id>
     <published>2018-09-11T15:47:42.843Z</published>
     <updated>2018-09-11T15:51:35.352Z</updated>
     
@@ -61,17 +61,17 @@
     
     </summary>
     
-      <category term="笔记" scheme="http://yoursite.com/blog/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="计算机网络" scheme="http://yoursite.com/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+      <category term="计算机网络" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
   <entry>
     <title>如何给Hexo正确添加RSS订阅</title>
-    <link href="http://yoursite.com/blog/2018/09/09/hexo-rss/"/>
-    <id>http://yoursite.com/blog/2018/09/09/hexo-rss/</id>
+    <link href="http://yoursite.com/2018/09/09/hexo-rss/"/>
+    <id>http://yoursite.com/2018/09/09/hexo-rss/</id>
     <published>2018-09-09T13:36:23.000Z</published>
     <updated>2018-09-14T14:01:03.933Z</updated>
     
@@ -87,19 +87,19 @@
     
     </summary>
     
-      <category term="Hexo搭建" scheme="http://yoursite.com/blog/categories/Hexo%E6%90%AD%E5%BB%BA/"/>
+      <category term="Hexo搭建" scheme="http://yoursite.com/categories/Hexo%E6%90%AD%E5%BB%BA/"/>
     
     
-      <category term="Hexo" scheme="http://yoursite.com/blog/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
     
-      <category term="rss" scheme="http://yoursite.com/blog/tags/rss/"/>
+      <category term="rss" scheme="http://yoursite.com/tags/rss/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/blog/2018/09/09/hello-world/"/>
-    <id>http://yoursite.com/blog/2018/09/09/hello-world/</id>
+    <link href="http://yoursite.com/2018/09/09/hello-world/"/>
+    <id>http://yoursite.com/2018/09/09/hello-world/</id>
     <published>2018-09-08T16:12:44.000Z</published>
     <updated>2018-09-09T02:07:54.955Z</updated>
     
@@ -114,10 +114,10 @@
     
     </summary>
     
-      <category term="杂聊" scheme="http://yoursite.com/blog/categories/%E6%9D%82%E8%81%8A/"/>
+      <category term="杂聊" scheme="http://yoursite.com/categories/%E6%9D%82%E8%81%8A/"/>
     
     
-      <category term="我" scheme="http://yoursite.com/blog/tags/%E6%88%91/"/>
+      <category term="我" scheme="http://yoursite.com/tags/%E6%88%91/"/>
     
   </entry>
   
