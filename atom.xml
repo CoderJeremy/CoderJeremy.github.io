@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://coderjeremy.github.io/"/>
-  <updated>2018-09-25T13:34:24.166Z</updated>
+  <updated>2018-10-09T13:44:07.646Z</updated>
   <id>https://coderjeremy.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Quicksort快速排序算法</title>
+    <link href="https://coderjeremy.github.io/2018/10/09/Quicksort%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
+    <id>https://coderjeremy.github.io/2018/10/09/Quicksort快速排序算法/</id>
+    <published>2018-10-09T12:04:05.000Z</published>
+    <updated>2018-10-09T13:44:07.646Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="快速排序算法"><a href="#快速排序算法" class="headerlink" title="快速排序算法"></a>快速排序算法</h1><p>思想：二分法，分治法，递归</p><p>排序实例<br>6    1    2    7    9    3    4    5    10    8<br>6为基准，也就是temp<br>先从右找第一个比基准数小的，再从左找第一个比基准数大的，进行交换，这里必须从右边先找的原因是因为基准数定的是最左的数。</p><blockquote><p>如果选取最左边的数a[left]作为基准数，那么先从右边开始可保证i，j在相遇时，相遇数是小于基准数的，交换之后temp所在位置的左边都小于temp。但先从左边开始,相遇数是大于基准数的，无法满足temp左边的数都小于它</p></blockquote><p>找到7 和 5<br>6     1    2    <strong>7</strong>    9    3    4    <strong>5</strong>    10    8</p><hr><p>交换后得到<br>6    1    2    <strong>5</strong>    9    3    4    <strong>7</strong>    10    8</p><hr><p>依次类推，当得到 i == j 或 i &gt; j时，排序无法继续进行，此时情况如下<br>6    1    2    5    4    <strong>3</strong>    9    7    10    8</p><hr><p>此时交换基准数与<strong>3</strong><br><strong>3</strong>    1    2    5    4    <strong>6</strong>    9    7    10    8</p><hr><p>这样就保证了基准数6左边都比他小，右边都比他大<br>这时，再将3设为基准数，在3 1 2 5 4 中进行快速排序，在9 7 10 8中进行快速排序<br>也就是进行递归排序算法，最终就得到排序结果<br>1    2    3    4    5    6    7    8    9    10</p><hr><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(<span class="keyword">int</span>* a, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> i = left;</span><br><span class="line"><span class="keyword">int</span> j = right;</span><br><span class="line"><span class="keyword">int</span> temp = a[left];</span><br><span class="line"><span class="keyword">int</span> t = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">if</span> (left &gt;= right)</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line"><span class="keyword">while</span> (i != j)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">while</span> (i &lt; j &amp;&amp; a[j] &gt;= temp)<span class="comment">//a[j]&lt;temp跳出循环，找到第一个a[j]&lt;temp</span></span><br><span class="line">j--;<span class="comment">//从右向左找第一个小于x的数</span></span><br><span class="line"><span class="keyword">while</span> (i &lt; j &amp;&amp; a[i] &lt;= temp)<span class="comment">//a[i]&gt;temp跳出循环，找到第一个a[i]&gt;temp</span></span><br><span class="line">i++;<span class="comment">//从左向右找第一个大于x的数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//交换两个数在数组中的位置</span></span><br><span class="line"><span class="keyword">if</span> (i &lt; j)</span><br><span class="line">&#123;</span><br><span class="line">t = a[i];</span><br><span class="line">a[i] = a[j];</span><br><span class="line">a[j] = t;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//将基准数归位</span></span><br><span class="line">a[left] = a[i];</span><br><span class="line">a[i] = temp;</span><br><span class="line">QuickSort(a, left, i - <span class="number">1</span>);</span><br><span class="line">QuickSort(a, i + <span class="number">1</span>, right);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">101</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line"><span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">&#125;</span><br><span class="line">QuickSort(a, <span class="number">0</span>, n<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>测试用例：</p><p>Input:<br>11<br>3 4 5 1 34 61 22 41 111 2 87</p><p>Output:<br>1 2 3 4 5 22 34 41 61 87 111</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;快速排序算法&quot;&gt;&lt;a href=&quot;#快速排序算法&quot; class=&quot;headerlink&quot; title=&quot;快速排序算法&quot;&gt;&lt;/a&gt;快速排序算法&lt;/h1&gt;&lt;p&gt;思想：二分法，分治法，递归&lt;/p&gt;
+&lt;p&gt;排序实例&lt;br&gt;6    1    2    7    9    
+      
+    
+    </summary>
+    
+      <category term="算法" scheme="https://coderjeremy.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="排序算法" scheme="https://coderjeremy.github.io/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="QuickSort" scheme="https://coderjeremy.github.io/tags/QuickSort/"/>
+    
+  </entry>
   
   <entry>
     <title>计算机网络物理层</title>
