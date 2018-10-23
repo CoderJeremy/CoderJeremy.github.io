@@ -174,17 +174,17 @@
 
 
 
-  <meta name="description" content="查看我的摄影作品  : 图虫摄影网 (`・ω・´)">
+  <meta name="description" content="### 查看我的摄影作品  : 图虫摄影网 (`・ω・´)">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Photography">
 <meta property="og:url" content="https://coderjeremy.github.io/photo/index.html">
 <meta property="og:site_name" content="Jeremy&#39;s Blog">
-<meta property="og:description" content="查看我的摄影作品  : 图虫摄影网 (`・ω・´)">
+<meta property="og:description" content="### 查看我的摄影作品  : 图虫摄影网 (`・ω・´)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-09T09:48:51.692Z">
+<meta property="og:updated_time" content="2018-10-23T13:02:09.128Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Photography">
-<meta name="twitter:description" content="查看我的摄影作品  : 图虫摄影网 (`・ω・´)">
+<meta name="twitter:description" content="### 查看我的摄影作品  : 图虫摄影网 (`・ω・´)">
 
 
 
@@ -460,7 +460,7 @@
       <div class="post-body">
         
         
-          <h3 id="查看我的摄影作品-图虫摄影网-・ω・´"><a href="#查看我的摄影作品-图虫摄影网-・ω・´" class="headerlink" title="查看我的摄影作品  : 图虫摄影网 (`・ω・´)"></a>查看我的摄影作品  : <a href="https://jeremywu.tuchong.com/" target="_blank" rel="noopener">图虫摄影网</a> (`・ω・´)</h3>
+          <center><br><br>### 查看我的摄影作品  : <a href="https://jeremywu.tuchong.com/" target="_blank" rel="noopener">图虫摄影网</a> (`・ω・´)<br><br></center>
         
       </div>
       
@@ -506,17 +506,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -535,7 +526,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -556,7 +547,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -585,7 +578,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -643,22 +640,6 @@
       </section>
 
       
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看我的摄影作品-图虫摄影网-・ω・´"><span class="nav-number">1.</span> <span class="nav-text">查看我的摄影作品  : 图虫摄影网 (`・ω・´)</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
 
       
 
@@ -684,7 +665,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">9k</span>
+    <span title="站点总字数">10k</span>
   
 
   
@@ -693,7 +674,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">8 分钟</span>
+    <span title="站点阅读时长">10 分钟</span>
   
 </div>
 
@@ -1246,6 +1227,75 @@
   
 
   
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
 
   
   <!-- 页面点击小红心 -->
