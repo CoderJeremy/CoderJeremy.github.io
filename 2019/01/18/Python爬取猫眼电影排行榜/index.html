@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "1af87200"
+    });
+  daovoice('update');
+  </script>
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PingFang SC:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+
+  <meta name="description" content="Python爬取猫眼电影排行榜 requests 获取 html lxml 解析 html  xpath 定位元素 json 存文件  自己写的12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686">
+<meta name="keywords" content="python,lxml,requests,json">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python爬取猫眼电影排行榜">
+<meta property="og:url" content="https://coderjeremy.github.io/2019/01/18/Python爬取猫眼电影排行榜/index.html">
+<meta property="og:site_name" content="Jeremy&#39;s Blog">
+<meta property="og:description" content="Python爬取猫眼电影排行榜 requests 获取 html lxml 解析 html  xpath 定位元素 json 存文件  自己写的12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-18T12:59:06.054Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python爬取猫眼电影排行榜">
+<meta name="twitter:description" content="Python爬取猫眼电影排行榜 requests 获取 html lxml 解析 html  xpath 定位元素 json 存文件  自己写的12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jeremy's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://coderjeremy.github.io/2019/01/18/Python爬取猫眼电影排行榜/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Python爬取猫眼电影排行榜 | Jeremy's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jeremy's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">艰险我奋进，困乏我多情</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-photo">
+    <a href="/photo/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-camera"></i> <br />摄影</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+    <a href="/schedule/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />日程表</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://coderjeremy.github.io/2019/01/18/Python爬取猫眼电影排行榜/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴健伟_Jeremy">
+      <meta itemprop="description" content="艰险我奋进，困乏我多情">
+      <meta itemprop="image" content="/images/profilephoto.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeremy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python爬取猫眼电影排行榜
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-18 20:44:16 / 修改时间：20:59:06" itemprop="dateCreated datePublished" datetime="2019-01-18T20:44:16+08:00">2019-01-18</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/18/Python爬取猫眼电影排行榜/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/01/18/Python爬取猫眼电影排行榜/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/01/18/Python爬取猫眼电影排行榜/" class="leancloud_visitors" data-flag-title="Python爬取猫眼电影排行榜">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+				 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">24k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">21 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Python爬取猫眼电影排行榜"><a href="#Python爬取猫眼电影排行榜" class="headerlink" title="Python爬取猫眼电影排行榜"></a>Python爬取猫眼电影排行榜</h1><ul>
+<li>requests 获取 html</li>
+<li>lxml 解析 html </li>
+<li>xpath 定位元素</li>
+<li>json 存文件</li>
+</ul>
+<h2 id="自己写的"><a href="#自己写的" class="headerlink" title="自己写的"></a>自己写的</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> html</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="comment"># 存储排名的列表</span></span><br><span class="line">rank_list = []</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">spider</span><span class="params">(offset)</span>:</span></span><br><span class="line">    <span class="string">'''爬取猫眼电影排行榜'''</span></span><br><span class="line">    url = <span class="string">"https://maoyan.com/board/4?offset=&#123;offset&#125;"</span>.format(offset=offset)</span><br><span class="line">    html_data = requests.get(url).text</span><br><span class="line">    <span class="comment"># print(html_data)</span></span><br><span class="line">    selector = html.fromstring(html_data)</span><br><span class="line">    <span class="comment"># print(selector)</span></span><br><span class="line"></span><br><span class="line">    topper = selector.xpath(<span class="string">'//dd'</span>)</span><br><span class="line">    <span class="comment"># print(topper)</span></span><br><span class="line">    temp = []</span><br><span class="line">    <span class="keyword">for</span> movie <span class="keyword">in</span> topper:</span><br><span class="line">        <span class="comment"># 排名</span></span><br><span class="line">        rank = movie.xpath(<span class="string">'i/text()'</span>)[<span class="number">0</span>]</span><br><span class="line">        print(<span class="string">"排名:&#123;&#125;"</span>.format(rank))</span><br><span class="line">        <span class="comment"># 电影名</span></span><br><span class="line">        name = movie.xpath(<span class="string">'div/div/div/p/a/@title'</span>)[<span class="number">0</span>]</span><br><span class="line">        print(<span class="string">"《&#123;&#125;》"</span>.format(name))</span><br><span class="line">        <span class="comment"># 主演</span></span><br><span class="line">        star = movie.xpath(<span class="string">'div/div/div/p[@class="star"]/text()'</span>)[<span class="number">0</span>].strip()</span><br><span class="line">        print(star)</span><br><span class="line">        <span class="comment"># 上映时间</span></span><br><span class="line">        time = movie.xpath(<span class="string">'div/div/div/p[@class="releasetime"]/text()'</span>)[<span class="number">0</span>]</span><br><span class="line">        print(time)</span><br><span class="line">        <span class="comment"># 评分</span></span><br><span class="line">        score1 = movie.xpath(<span class="string">'div/div/div/p[@class="score"]/i[1]/text()'</span>)[<span class="number">0</span>]</span><br><span class="line">        print(<span class="string">"评分:&#123;&#125;"</span>.format(score1), end=<span class="string">''</span>)</span><br><span class="line">        score2 = movie.xpath(<span class="string">'div/div/div/p[@class="score"]/i[2]/text()'</span>)[<span class="number">0</span>]</span><br><span class="line">        print(<span class="string">"&#123;&#125;"</span>.format(score2))</span><br><span class="line">        <span class="comment"># 封面,网站两个&lt;img&gt;标签，两个src资源无法区分，通过pycharm获取html源代码,src标签是不一样的</span></span><br><span class="line">        image = movie.xpath(<span class="string">'a[@class="image-link"]/img/@data-src'</span>)[<span class="number">0</span>]</span><br><span class="line">        print(image)</span><br><span class="line">        print(<span class="string">"-"</span>*<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">        rank_list.append(&#123;</span><br><span class="line">            <span class="string">'rank'</span>: rank,</span><br><span class="line">            <span class="string">'name'</span>: name,</span><br><span class="line">            <span class="string">'star'</span>: star,</span><br><span class="line">            <span class="string">'time'</span>: time,</span><br><span class="line">            <span class="string">'score'</span>: score1+score2,</span><br><span class="line">            <span class="string">'image'</span>: image</span><br><span class="line">        &#125;)</span><br><span class="line">        temp.append(&#123;</span><br><span class="line">            <span class="string">'rank'</span>: rank,</span><br><span class="line">            <span class="string">'name'</span>: name,</span><br><span class="line">            <span class="string">'star'</span>: star,</span><br><span class="line">            <span class="string">'time'</span>: time,</span><br><span class="line">            <span class="string">'score'</span>: score1 + score2,</span><br><span class="line">            <span class="string">'image'</span>: image</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="comment"># print("一共爬取到&#123;&#125;部电影".format(len(rank_list)))</span></span><br><span class="line">    <span class="comment"># for movie in rank_list:</span></span><br><span class="line">    <span class="comment">#     print(movie)</span></span><br><span class="line">    <span class="keyword">return</span> temp</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 爬一次写一次，爬一页写一次，爬完写一次</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_to_file</span><span class="params">(content)</span>:</span></span><br><span class="line">    <span class="string">'''写入文件'''</span></span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'Maoyan_Rank.txt'</span>, <span class="string">'a'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        print(type(json.dumps(content)))</span><br><span class="line">        f.write(json.dumps(content, ensure_ascii=<span class="keyword">False</span>)+<span class="string">'\n'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment">#spider()</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">100</span>, <span class="number">10</span>):</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> spider(i):</span><br><span class="line">            write_to_file(item)</span><br><span class="line"></span><br><span class="line">     <span class="comment"># print("一共爬取到&#123;&#125;部电影".format(len(rank_list)))</span></span><br><span class="line">     <span class="comment"># for movie in rank_list:</span></span><br><span class="line">     <span class="comment">#    print(movie)</span></span><br><span class="line"></span><br><span class="line">     <span class="comment"># f = open('Maoyan_Rank.txt', 'w')</span></span><br><span class="line">     <span class="comment"># f.write(item for item in rank_list)</span></span><br></pre></td></tr></table></figure>
+<h2 id="书上用的正则表达式，这里跳过"><a href="#书上用的正则表达式，这里跳过" class="headerlink" title="书上用的正则表达式，这里跳过"></a>书上用的正则表达式，这里跳过</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> html</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_one_page</span><span class="params">(url)</span>:</span></span><br><span class="line">    headers = &#123;</span><br><span class="line">        <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '</span></span><br><span class="line">                      <span class="string">'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'</span></span><br><span class="line">    &#125;</span><br><span class="line">    res = requests.get(url, headers=headers)</span><br><span class="line">    <span class="comment"># print(res)</span></span><br><span class="line">    <span class="comment"># get 请求 成功返回 状态码 = 200</span></span><br><span class="line">    <span class="keyword">if</span> res.status_code == <span class="number">200</span>:</span><br><span class="line">        <span class="comment"># print(res.text)</span></span><br><span class="line">        <span class="keyword">return</span> res.text</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">spider</span><span class="params">(offset)</span>:</span></span><br><span class="line">    <span class="string">'''爬取猫眼电影排行榜'''</span></span><br><span class="line">    url = <span class="string">"https://maoyan.com/board/4?offset=&#123;&#125;"</span>.format(offset)</span><br><span class="line">    html_data = get_one_page(url)</span><br><span class="line">    <span class="comment"># print(html_data)</span></span><br><span class="line">    selector = html.fromstring(html_data)</span><br><span class="line">    <span class="comment"># print(selector)</span></span><br><span class="line"></span><br><span class="line">    topper = selector.xpath(<span class="string">'//dd'</span>)</span><br><span class="line">    <span class="comment"># print(topper)</span></span><br><span class="line"></span><br><span class="line">    rank_list = []</span><br><span class="line">    <span class="keyword">for</span> movie <span class="keyword">in</span> topper:</span><br><span class="line">        <span class="comment"># 排名</span></span><br><span class="line">        rank = movie.xpath(<span class="string">'i/text()'</span>)[<span class="number">0</span>]</span><br><span class="line">        print(<span class="string">"排名:&#123;&#125;"</span>.format(rank))</span><br><span class="line">        <span class="comment"># 电影名</span></span><br><span class="line">        name = movie.xpath(<span class="string">'div/div/div/p/a/@title'</span>)[<span class="number">0</span>]</span><br><span class="line">        print(<span class="string">"《&#123;&#125;》"</span>.format(name))</span><br><span class="line">        <span class="comment"># 主演</span></span><br><span class="line">        star = movie.xpath(<span class="string">'div/div/div/p[@class="star"]/text()'</span>)[<span class="number">0</span>].strip()</span><br><span class="line">        print(star)</span><br><span class="line">        <span class="comment"># 上映时间</span></span><br><span class="line">        time = movie.xpath(<span class="string">'div/div/div/p[@class="releasetime"]/text()'</span>)[<span class="number">0</span>]</span><br><span class="line">        print(time)</span><br><span class="line">        <span class="comment"># 评分</span></span><br><span class="line">        score1 = movie.xpath(<span class="string">'div/div/div/p[@class="score"]/i[1]/text()'</span>)[<span class="number">0</span>]</span><br><span class="line">        print(<span class="string">"评分:&#123;&#125;"</span>.format(score1), end=<span class="string">''</span>)</span><br><span class="line">        score2 = movie.xpath(<span class="string">'div/div/div/p[@class="score"]/i[2]/text()'</span>)[<span class="number">0</span>]</span><br><span class="line">        print(<span class="string">"&#123;&#125;"</span>.format(score2))</span><br><span class="line">        <span class="comment"># 封面,网站两个&lt;img&gt;标签，两个src资源无法区分，通过pycharm获取html源代码,src标签是不一样的</span></span><br><span class="line">        image = movie.xpath(<span class="string">'a[@class="image-link"]/img/@data-src'</span>)[<span class="number">0</span>]</span><br><span class="line">        print(image)</span><br><span class="line">        print(<span class="string">"-"</span>*<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">        rank_list.append(&#123;</span><br><span class="line">            <span class="string">'rank'</span>: rank,</span><br><span class="line">            <span class="string">'name'</span>: name,</span><br><span class="line">            <span class="string">'star'</span>: star,</span><br><span class="line">            <span class="string">'time'</span>: time,</span><br><span class="line">            <span class="string">'score'</span>: score1+score2,</span><br><span class="line">            <span class="string">'image'</span>: image</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="comment"># print("一共爬取到&#123;&#125;部电影".format(len(rank_list)))</span></span><br><span class="line">    <span class="comment"># for movie in rank_list:</span></span><br><span class="line">    <span class="comment">#     print(movie)</span></span><br><span class="line">    <span class="keyword">return</span> rank_list</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write_to_file</span><span class="params">(content)</span>:</span></span><br><span class="line">    <span class="string">'''写入文件'''</span></span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'result.txt'</span>, <span class="string">'a'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        print(type(json.dumps(content)))</span><br><span class="line">        f.write(json.dumps(content, ensure_ascii=<span class="keyword">False</span>)+<span class="string">'\n\n'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment">#spider()</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">100</span>, <span class="number">10</span>):</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> spider(i):</span><br><span class="line">            write_to_file(item)</span><br></pre></td></tr></table></figure>
+<h2 id="爬取结果"><a href="#爬取结果" class="headerlink" title="爬取结果"></a>爬取结果</h2><h3 id="输出结果"><a href="#输出结果" class="headerlink" title="输出结果"></a>输出结果</h3><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br><span class="line">531</span><br><span class="line">532</span><br><span class="line">533</span><br><span class="line">534</span><br><span class="line">535</span><br><span class="line">536</span><br><span class="line">537</span><br><span class="line">538</span><br><span class="line">539</span><br><span class="line">540</span><br><span class="line">541</span><br><span class="line">542</span><br><span class="line">543</span><br><span class="line">544</span><br><span class="line">545</span><br><span class="line">546</span><br><span class="line">547</span><br><span class="line">548</span><br><span class="line">549</span><br><span class="line">550</span><br><span class="line">551</span><br><span class="line">552</span><br><span class="line">553</span><br><span class="line">554</span><br><span class="line">555</span><br><span class="line">556</span><br><span class="line">557</span><br><span class="line">558</span><br><span class="line">559</span><br><span class="line">560</span><br><span class="line">561</span><br><span class="line">562</span><br><span class="line">563</span><br><span class="line">564</span><br><span class="line">565</span><br><span class="line">566</span><br><span class="line">567</span><br><span class="line">568</span><br><span class="line">569</span><br><span class="line">570</span><br><span class="line">571</span><br><span class="line">572</span><br><span class="line">573</span><br><span class="line">574</span><br><span class="line">575</span><br><span class="line">576</span><br><span class="line">577</span><br><span class="line">578</span><br><span class="line">579</span><br><span class="line">580</span><br><span class="line">581</span><br><span class="line">582</span><br><span class="line">583</span><br><span class="line">584</span><br><span class="line">585</span><br><span class="line">586</span><br><span class="line">587</span><br><span class="line">588</span><br><span class="line">589</span><br><span class="line">590</span><br><span class="line">591</span><br><span class="line">592</span><br><span class="line">593</span><br><span class="line">594</span><br><span class="line">595</span><br><span class="line">596</span><br><span class="line">597</span><br><span class="line">598</span><br><span class="line">599</span><br><span class="line">600</span><br><span class="line">601</span><br><span class="line">602</span><br><span class="line">603</span><br><span class="line">604</span><br><span class="line">605</span><br><span class="line">606</span><br><span class="line">607</span><br><span class="line">608</span><br><span class="line">609</span><br><span class="line">610</span><br><span class="line">611</span><br><span class="line">612</span><br><span class="line">613</span><br><span class="line">614</span><br><span class="line">615</span><br><span class="line">616</span><br><span class="line">617</span><br><span class="line">618</span><br><span class="line">619</span><br><span class="line">620</span><br><span class="line">621</span><br><span class="line">622</span><br><span class="line">623</span><br><span class="line">624</span><br><span class="line">625</span><br><span class="line">626</span><br><span class="line">627</span><br><span class="line">628</span><br><span class="line">629</span><br><span class="line">630</span><br><span class="line">631</span><br><span class="line">632</span><br><span class="line">633</span><br><span class="line">634</span><br><span class="line">635</span><br><span class="line">636</span><br><span class="line">637</span><br><span class="line">638</span><br><span class="line">639</span><br><span class="line">640</span><br><span class="line">641</span><br><span class="line">642</span><br><span class="line">643</span><br><span class="line">644</span><br><span class="line">645</span><br><span class="line">646</span><br><span class="line">647</span><br><span class="line">648</span><br><span class="line">649</span><br><span class="line">650</span><br><span class="line">651</span><br><span class="line">652</span><br><span class="line">653</span><br><span class="line">654</span><br><span class="line">655</span><br><span class="line">656</span><br><span class="line">657</span><br><span class="line">658</span><br><span class="line">659</span><br><span class="line">660</span><br><span class="line">661</span><br><span class="line">662</span><br><span class="line">663</span><br><span class="line">664</span><br><span class="line">665</span><br><span class="line">666</span><br><span class="line">667</span><br><span class="line">668</span><br><span class="line">669</span><br><span class="line">670</span><br><span class="line">671</span><br><span class="line">672</span><br><span class="line">673</span><br><span class="line">674</span><br><span class="line">675</span><br><span class="line">676</span><br><span class="line">677</span><br><span class="line">678</span><br><span class="line">679</span><br><span class="line">680</span><br><span class="line">681</span><br><span class="line">682</span><br><span class="line">683</span><br><span class="line">684</span><br><span class="line">685</span><br><span class="line">686</span><br><span class="line">687</span><br><span class="line">688</span><br><span class="line">689</span><br><span class="line">690</span><br><span class="line">691</span><br><span class="line">692</span><br><span class="line">693</span><br><span class="line">694</span><br><span class="line">695</span><br><span class="line">696</span><br><span class="line">697</span><br><span class="line">698</span><br><span class="line">699</span><br><span class="line">700</span><br><span class="line">701</span><br><span class="line">702</span><br><span class="line">703</span><br></pre></td><td class="code"><pre><span class="line">C:\ProgramData\Anaconda3\python.exe F:/Python+/Spider/Maoyan.py</span><br><span class="line">排名:1</span><br><span class="line">《霸王别姬》</span><br><span class="line">主演：张国荣,张丰毅,巩俐</span><br><span class="line">上映时间：1993-01-01</span><br><span class="line">评分:9.6</span><br><span class="line">https://p1.meituan.net/movie/20803f59291c47e1e116c11963ce019e68711.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:2</span></span><br><span class="line"><span class="emphasis">《肖申克的救赎》</span></span><br><span class="line"><span class="emphasis">主演：蒂姆·罗宾斯,摩根·弗里曼,鲍勃·冈顿</span></span><br><span class="line"><span class="emphasis">上映时间：1994-10-14(美国)</span></span><br><span class="line"><span class="emphasis">评分:9.5</span></span><br><span class="line"><span class="emphasis">https://p0.meituan.net/movie/283292171619cdfd5b240c8fd093f1eb255670.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:3</span><br><span class="line">《罗马假日》</span><br><span class="line">主演：格利高里·派克,奥黛丽·赫本,埃迪·艾伯特</span><br><span class="line">上映时间：1953-09-02(美国)</span><br><span class="line">评分:9.1</span><br><span class="line">https://p0.meituan.net/movie/54617769d96807e4d81804284ffe2a27239007.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:4</span></span><br><span class="line"><span class="emphasis">《这个杀手不太冷》</span></span><br><span class="line"><span class="emphasis">主演：让·雷诺,加里·奥德曼,娜塔莉·波特曼</span></span><br><span class="line"><span class="emphasis">上映时间：1994-09-14(法国)</span></span><br><span class="line"><span class="emphasis">评分:9.5</span></span><br><span class="line"><span class="emphasis">https://p0.meituan.net/movie/e55ec5d18ccc83ba7db68caae54f165f95924.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:5</span><br><span class="line">《教父》</span><br><span class="line">主演：马龙·白兰度,阿尔·帕西诺,詹姆斯·肯恩</span><br><span class="line">上映时间：1972-03-24(美国)</span><br><span class="line">评分:9.3</span><br><span class="line">https://p1.meituan.net/movie/f5a924f362f050881f2b8f82e852747c118515.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:6</span></span><br><span class="line"><span class="emphasis">《泰坦尼克号》</span></span><br><span class="line"><span class="emphasis">主演：莱昂纳多·迪卡普里奥,凯特·温丝莱特,比利·赞恩</span></span><br><span class="line"><span class="emphasis">上映时间：1998-04-03</span></span><br><span class="line"><span class="emphasis">评分:9.5</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/0699ac97c82cf01638aa5023562d6134351277.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:7</span><br><span class="line">《唐伯虎点秋香》</span><br><span class="line">主演：周星驰,巩俐,郑佩佩</span><br><span class="line">上映时间：1993-07-01(中国香港)</span><br><span class="line">评分:9.2</span><br><span class="line">https://p0.meituan.net/movie/da64660f82b98cdc1b8a3804e69609e041108.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:8</span></span><br><span class="line"><span class="emphasis">《千与千寻》</span></span><br><span class="line"><span class="emphasis">主演：柊瑠美,入野自由,夏木真理</span></span><br><span class="line"><span class="emphasis">上映时间：2001-07-20(日本)</span></span><br><span class="line"><span class="emphasis">评分:9.3</span></span><br><span class="line"><span class="emphasis">https://p0.meituan.net/movie/b076ce63e9860ecf1ee9839badee5228329384.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:9</span><br><span class="line">《魂断蓝桥》</span><br><span class="line">主演：费雯·丽,罗伯特·泰勒,露塞尔·沃特森</span><br><span class="line">上映时间：1940-05-17(美国)</span><br><span class="line">评分:9.2</span><br><span class="line">https://p0.meituan.net/movie/46c29a8b8d8424bdda7715e6fd779c66235684.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:10</span></span><br><span class="line"><span class="emphasis">《乱世佳人》</span></span><br><span class="line"><span class="emphasis">主演：费雯·丽,克拉克·盖博,奥利维娅·德哈维兰</span></span><br><span class="line"><span class="emphasis">上映时间：1939-12-15(美国)</span></span><br><span class="line"><span class="emphasis">评分:9.1</span></span><br><span class="line"><span class="emphasis">https://p0.meituan.net/movie/230e71d398e0c54730d58dc4bb6e4cca51662.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:11</span><br><span class="line">《天空之城》</span><br><span class="line">主演：寺田农,鹫尾真知子,龟山助清</span><br><span class="line">上映时间：1992</span><br><span class="line">评分:9.1</span><br><span class="line">https://p1.meituan.net/movie/ba1ed511668402605ed369350ab779d6319397.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:12</span></span><br><span class="line"><span class="emphasis">《喜剧之王》</span></span><br><span class="line"><span class="emphasis">主演：周星驰,莫文蔚,张柏芝</span></span><br><span class="line"><span class="emphasis">上映时间：1999-02-13(中国香港)</span></span><br><span class="line"><span class="emphasis">评分:9.2</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/18e3191039d5e71562477659301f04aa61905.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:13</span><br><span class="line">《辛德勒的名单》</span><br><span class="line">主演：连姆·尼森,拉尔夫·费因斯,本·金斯利</span><br><span class="line">上映时间：1993-12-15(美国)</span><br><span class="line">评分:9.2</span><br><span class="line">https://p1.meituan.net/movie/39ed7a0941a3604bba78d299b11a18ce119679.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:14</span></span><br><span class="line"><span class="emphasis">《大闹天宫》</span></span><br><span class="line"><span class="emphasis">主演：邱岳峰,毕克,富润生</span></span><br><span class="line"><span class="emphasis">上映时间：1965-12-31</span></span><br><span class="line"><span class="emphasis">评分:9.0</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/14a7b337e8063e3ce05a5993ed80176b74208.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:15</span><br><span class="line">《音乐之声》</span><br><span class="line">主演：朱莉·安德鲁斯,克里斯托弗·普卢默,埃琳诺·帕克</span><br><span class="line">上映时间：1965-03-02(美国)</span><br><span class="line">评分:9.0</span><br><span class="line">https://p1.meituan.net/movie/6bc004d57358ee6875faa5e9a1239140128550.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:16</span></span><br><span class="line"><span class="emphasis">《剪刀手爱德华》</span></span><br><span class="line"><span class="emphasis">主演：约翰尼·德普,薇诺娜·瑞德,黛安·韦斯特</span></span><br><span class="line"><span class="emphasis">上映时间：1990-12-06(美国)</span></span><br><span class="line"><span class="emphasis">评分:8.8</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/0e91ffcfa7e53449216cc29ee8af513a75791.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:17</span><br><span class="line">《春光乍泄》</span><br><span class="line">主演：张国荣,梁朝伟,张震</span><br><span class="line">上映时间：1997-05-30(中国香港)</span><br><span class="line">评分:9.2</span><br><span class="line">https://p0.meituan.net/movie/ae7245920d95c03765fe1615f3a1fe3865785.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:18</span></span><br><span class="line"><span class="emphasis">《美丽人生》</span></span><br><span class="line"><span class="emphasis">主演：罗伯托·贝尼尼,尼可莱塔·布拉斯基,乔治·坎塔里尼</span></span><br><span class="line"><span class="emphasis">上映时间：1997-12-20(意大利)</span></span><br><span class="line"><span class="emphasis">评分:9.3</span></span><br><span class="line"><span class="emphasis">https://p0.meituan.net/movie/43d259ecbcd53e8bbe902632772281d6327525.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:19</span><br><span class="line">《海上钢琴师》</span><br><span class="line">主演：蒂姆·罗斯,普路特·泰勒·文斯,比尔·努恩</span><br><span class="line">上映时间：1998-10-28(意大利)</span><br><span class="line">评分:9.2</span><br><span class="line">https://p1.meituan.net/movie/c15b7623cce2f51c75562a3baefe507b68290.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:20</span></span><br><span class="line"><span class="emphasis">《黑客帝国》</span></span><br><span class="line"><span class="emphasis">主演：基努·里维斯,凯瑞-安·莫斯,劳伦斯·菲什伯恩</span></span><br><span class="line"><span class="emphasis">上映时间：2000-01-14</span></span><br><span class="line"><span class="emphasis">评分:9.0</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/d981a12f59d3cc92ff666094404ad8f0211220.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:21</span><br><span class="line">《加勒比海盗》</span><br><span class="line">主演：约翰尼·德普,凯拉·奈特莉,奥兰多·布鲁姆</span><br><span class="line">上映时间：2003-11-21</span><br><span class="line">评分:8.9</span><br><span class="line">https://p1.meituan.net/movie/b449893ebc63d5c54eb4a5b60341f334383831.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:22</span></span><br><span class="line"><span class="emphasis">《指环王3：王者无敌》</span></span><br><span class="line"><span class="emphasis">主演：伊莱贾·伍德,伊恩·麦克莱恩,丽芙·泰勒</span></span><br><span class="line"><span class="emphasis">上映时间：2004-03-15</span></span><br><span class="line"><span class="emphasis">评分:9.2</span></span><br><span class="line"><span class="emphasis">https://p0.meituan.net/movie/932bdfbef5be3543e6b136246aeb99b8123736.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:23</span><br><span class="line">《哈利·波特与魔法石》</span><br><span class="line">主演：丹尼尔·雷德克里夫,鲁伯特·格林特,艾玛·沃特森</span><br><span class="line">上映时间：2002-01-26</span><br><span class="line">评分:9.1</span><br><span class="line">https://p1.meituan.net/movie/aacb9ed2a6601bfe515ef0970add1715623792.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:24</span></span><br><span class="line"><span class="emphasis">《无间道》</span></span><br><span class="line"><span class="emphasis">主演：刘德华,梁朝伟,黄秋生</span></span><br><span class="line"><span class="emphasis">上映时间：2003-09-05</span></span><br><span class="line"><span class="emphasis">评分:9.1</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/0d93b5b585ce29c6688e43f3989fb41f86421.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:25</span><br><span class="line">《射雕英雄传之东成西就》</span><br><span class="line">主演：张国荣,梁朝伟,张学友</span><br><span class="line">上映时间：1993-02-05(中国香港)</span><br><span class="line">评分:8.9</span><br><span class="line">https://p1.meituan.net/movie/53b6f0b66882a53b08896c92076515a8236400.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:26</span></span><br><span class="line"><span class="emphasis">《楚门的世界》</span></span><br><span class="line"><span class="emphasis">主演：金·凯瑞,劳拉·琳妮,诺亚·艾默里奇</span></span><br><span class="line"><span class="emphasis">上映时间：1998-06-01(美国)</span></span><br><span class="line"><span class="emphasis">评分:8.9</span></span><br><span class="line"><span class="emphasis">https://p0.meituan.net/movie/8959888ee0c399b0fe53a714bc8a5a17460048.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:27</span><br><span class="line">《蝙蝠侠：黑暗骑士》</span><br><span class="line">主演：克里斯蒂安·贝尔,希斯·莱杰,阿伦·伊克哈特</span><br><span class="line">上映时间：2008-07-18(美国)</span><br><span class="line">评分:9.3</span><br><span class="line">https://p0.meituan.net/movie/d12a1c198ad9ffac72b5db57feacb449294699.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:28</span></span><br><span class="line"><span class="emphasis">《教父2》</span></span><br><span class="line"><span class="emphasis">主演：阿尔·帕西诺,罗伯特·德尼罗,黛安·基顿</span></span><br><span class="line"><span class="emphasis">上映时间：1974-12-12(美国)</span></span><br><span class="line"><span class="emphasis">评分:9.0</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/7bac8bfa6739c18620065132ce9c64fa85110.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:29</span><br><span class="line">《指环王2：双塔奇兵》</span><br><span class="line">主演：伊莱贾·伍德,伊恩·麦克莱恩,丽芙·泰勒</span><br><span class="line">上映时间：2003-04-25</span><br><span class="line">评分:9.1</span><br><span class="line">https://p0.meituan.net/movie/5cfa597a98b35ee4ee598695942641ba287922.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:30</span></span><br><span class="line"><span class="emphasis">《机器人总动员》</span></span><br><span class="line"><span class="emphasis">主演：本·贝尔特,艾丽莎·奈特,杰夫·格尔林</span></span><br><span class="line"><span class="emphasis">上映时间：2008-06-27(美国)</span></span><br><span class="line"><span class="emphasis">评分:9.3</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/4592eef6b6dffcd1d950f55f41ab098f239816.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:31</span><br><span class="line">《天堂电影院》</span><br><span class="line">主演：菲利浦·诺瓦雷,赛尔乔·卡斯特利托,蒂兹亚娜·罗达托</span><br><span class="line">上映时间：1988-11-17(意大利)</span><br><span class="line">评分:9.2</span><br><span class="line">https://p1.meituan.net/movie/618e57ddb3173de6bbf2e278946b11f279679.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:32</span></span><br><span class="line"><span class="emphasis">《活着》</span></span><br><span class="line"><span class="emphasis">主演：葛优,巩俐,牛犇</span></span><br><span class="line"><span class="emphasis">上映时间：1994-05-18(法国)</span></span><br><span class="line"><span class="emphasis">评分:9.0</span></span><br><span class="line"><span class="emphasis">https://p0.meituan.net/movie/4c41068ef7608c1d4fbfbe6016e589f7204391.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:33</span><br><span class="line">《拯救大兵瑞恩》</span><br><span class="line">主演：汤姆·汉克斯,马特·达蒙,汤姆·塞兹摩尔</span><br><span class="line">上映时间：1998-07-24(美国)</span><br><span class="line">评分:8.9</span><br><span class="line">https://p1.meituan.net/movie/779bcc212a50a2526343362778f6b63c334618.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:34</span></span><br><span class="line"><span class="emphasis">《哈尔的移动城堡》</span></span><br><span class="line"><span class="emphasis">主演：倍赏千惠子,木村拓哉,美轮明宏</span></span><br><span class="line"><span class="emphasis">上映时间：2004-11-20(日本)</span></span><br><span class="line"><span class="emphasis">评分:9.0</span></span><br><span class="line"><span class="emphasis">https://p0.meituan.net/movie/0127b451d5b8f0679c6f81c8ed414bb2432442.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:35</span><br><span class="line">《阿凡达》</span><br><span class="line">主演：萨姆·沃辛顿,佐伊·索尔达娜,米歇尔·罗德里格兹</span><br><span class="line">上映时间：2010-01-04</span><br><span class="line">评分:9.1</span><br><span class="line">https://p1.meituan.net/movie/91f575ec93f019f428d1f33e3ceca7c5115495.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:36</span></span><br><span class="line"><span class="emphasis">《盗梦空间》</span></span><br><span class="line"><span class="emphasis">主演：莱昂纳多·迪卡普里奥,渡边谦,约瑟夫·高登-莱维特</span></span><br><span class="line"><span class="emphasis">上映时间：2010-09-01</span></span><br><span class="line"><span class="emphasis">评分:9.2</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/2f344a9f9575edbcae9f0abe0578bc90339773.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:37</span><br><span class="line">《忠犬八公的故事》</span><br><span class="line">主演：Forest,理查·基尔,琼·艾伦</span><br><span class="line">上映时间：2010-03-12(英国)</span><br><span class="line">评分:9.3</span><br><span class="line">https://p0.meituan.net/movie/7787c10ad5e95b03cf83ef9473500d8e282796.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:38</span></span><br><span class="line"><span class="emphasis">《幽灵公主》</span></span><br><span class="line"><span class="emphasis">主演：松田洋治,石田百合子,田中裕子</span></span><br><span class="line"><span class="emphasis">上映时间：1997-07-12(日本)</span></span><br><span class="line"><span class="emphasis">评分:8.9</span></span><br><span class="line"><span class="emphasis">https://p0.meituan.net/movie/6ab1882a217e848acceb240365043d53329196.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:39</span><br><span class="line">《搏击俱乐部》</span><br><span class="line">主演：爱德华·哈里森·诺顿,布拉德·皮特,海伦娜·伯翰·卡特</span><br><span class="line">上映时间：1999-10-15(美国)</span><br><span class="line">评分:8.8</span><br><span class="line">https://p1.meituan.net/movie/c5e76795bf7a78b12a2ffabb4a0c5c11112921.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:40</span></span><br><span class="line"><span class="emphasis">《东邪西毒》</span></span><br><span class="line"><span class="emphasis">主演：张国荣,梁朝伟,刘嘉玲</span></span><br><span class="line"><span class="emphasis">上映时间：1994-09-17</span></span><br><span class="line"><span class="emphasis">评分:8.8</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/7e471a9171a410ebc9413b2f1de67afc130067.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:41</span><br><span class="line">《风之谷》</span><br><span class="line">主演：岛本须美,永井一郎,坂本千夏</span><br><span class="line">上映时间：1992</span><br><span class="line">评分:8.9</span><br><span class="line">https://p0.meituan.net/movie/4f9638ba234c3fb673f23a09968db875371576.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:42</span></span><br><span class="line"><span class="emphasis">《疯狂原始人》</span></span><br><span class="line"><span class="emphasis">主演：尼古拉斯·凯奇,艾玛·斯通,瑞安·雷诺兹</span></span><br><span class="line"><span class="emphasis">上映时间：2013-04-20</span></span><br><span class="line"><span class="emphasis">评分:9.5</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/d5e5e53ef9bbd98223e83df261b51b84103223.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:43</span><br><span class="line">《当幸福来敲门》</span><br><span class="line">主演：威尔·史密斯,贾登·史密斯,坦迪·牛顿</span><br><span class="line">上映时间：2008-01-17</span><br><span class="line">评分:8.9</span><br><span class="line">https://p1.meituan.net/movie/5896de3c1474277730e321c9b1db04a9205644.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:44</span></span><br><span class="line"><span class="emphasis">《V字仇杀队》</span></span><br><span class="line"><span class="emphasis">主演：娜塔莉·波特曼,雨果·维文,斯蒂芬·瑞</span></span><br><span class="line"><span class="emphasis">上映时间：2006-03-17(美国)</span></span><br><span class="line"><span class="emphasis">评分:8.8</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/4a4c84aa103ab47202f1aa907c5542a4128882.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:45</span><br><span class="line">《十二怒汉》</span><br><span class="line">主演：亨利·方达,李·科布,马丁·鲍尔萨姆</span><br><span class="line">上映时间：1957-04-13(美国)</span><br><span class="line">评分:9.1</span><br><span class="line">https://p0.meituan.net/movie/df15efd261060d3094a73ef679888d4f238149.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:46</span></span><br><span class="line"><span class="emphasis">《放牛班的春天》</span></span><br><span class="line"><span class="emphasis">主演：热拉尔·朱尼奥,让-巴蒂斯特·莫尼耶,玛丽·布奈尔</span></span><br><span class="line"><span class="emphasis">上映时间：2004-10-16</span></span><br><span class="line"><span class="emphasis">评分:8.8</span></span><br><span class="line"><span class="emphasis">https://p0.meituan.net/movie/7cd18fcf0b4f9180500124711e81492994030.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:47</span><br><span class="line">《三傻大闹宝莱坞》</span><br><span class="line">主演：阿米尔·汗,黄渤,卡琳娜·卡普</span><br><span class="line">上映时间：2011-12-08</span><br><span class="line">评分:9.1</span><br><span class="line">https://p0.meituan.net/movie/4bb144bc0a674ba6908349018fd092e6330929.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:48</span></span><br><span class="line"><span class="emphasis">《勇敢的心》</span></span><br><span class="line"><span class="emphasis">主演：梅尔·吉布森,苏菲·玛索,帕特里克·麦高汉</span></span><br><span class="line"><span class="emphasis">上映时间：1995-05-24(美国)</span></span><br><span class="line"><span class="emphasis">评分:8.8</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/f8e9d5a90224746d15dfdbd53d4fae3d209420.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:49</span><br><span class="line">《黑客帝国3：矩阵革命》</span><br><span class="line">主演：基努·里维斯,雨果·维文,凯瑞-安·莫斯</span><br><span class="line">上映时间：2003-11-05</span><br><span class="line">评分:8.8</span><br><span class="line">https://p1.meituan.net/movie/5ca6ffcbb994a51cd6215e7c4fff2d9b71039.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:50</span></span><br><span class="line"><span class="emphasis">《速度与激情5》</span></span><br><span class="line"><span class="emphasis">主演：范·迪塞尔,保罗·沃克,道恩·强森</span></span><br><span class="line"><span class="emphasis">上映时间：2011-05-12</span></span><br><span class="line"><span class="emphasis">评分:9.2</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/1d0fa86bcf7a44484b9c16ac6af5be68191952.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:51</span><br><span class="line">《驯龙高手》</span><br><span class="line">主演：杰伊·巴鲁切尔,杰拉德·巴特勒,亚美莉卡·费雷拉</span><br><span class="line">上映时间：2010-05-14</span><br><span class="line">评分:9.0</span><br><span class="line">https://p1.meituan.net/movie/8194ae885ed9419aadf35c196af86ba4239039.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:52</span></span><br><span class="line"><span class="emphasis">《少年派的奇幻漂流》</span></span><br><span class="line"><span class="emphasis">主演：苏拉·沙玛,伊尔凡·可汗,塔布</span></span><br><span class="line"><span class="emphasis">上映时间：2012-11-22</span></span><br><span class="line"><span class="emphasis">评分:9.1</span></span><br><span class="line"><span class="emphasis">https://p0.meituan.net/movie/34998e31c6d07475f1add6b8b16fd21d192579.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:53</span><br><span class="line">《神偷奶爸》</span><br><span class="line">主演：史蒂夫·卡瑞尔,杰森·席格尔,拉塞尔·布兰德</span><br><span class="line">上映时间：2010-07-09(美国)</span><br><span class="line">评分:9.0</span><br><span class="line">https://p0.meituan.net/movie/85c2bfba6025bfbfb53291ae5924c215308805.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:54</span></span><br><span class="line"><span class="emphasis">《闻香识女人》</span></span><br><span class="line"><span class="emphasis">主演：阿尔·帕西诺,克里斯·奥唐纳,加布里埃尔·安瓦尔</span></span><br><span class="line"><span class="emphasis">上映时间：1992-12-23(美国)</span></span><br><span class="line"><span class="emphasis">评分:8.8</span></span><br><span class="line"><span class="emphasis">https://p0.meituan.net/movie/7cb7965469cb7ff95613714389f1ea3d87743.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:55</span><br><span class="line">《断背山》</span><br><span class="line">主演：希斯·莱杰,杰克·吉伦哈尔,米歇尔·威廉姆斯</span><br><span class="line">上映时间：2006-01-13(美国)</span><br><span class="line">评分:9.0</span><br><span class="line">https://p0.meituan.net/movie/e71affe126eeb4f8bfcc738cbddeebc8288766.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:56</span></span><br><span class="line"><span class="emphasis">《飞屋环游记》</span></span><br><span class="line"><span class="emphasis">主演：爱德华·阿斯纳,乔丹·长井,鲍勃·彼德森</span></span><br><span class="line"><span class="emphasis">上映时间：2009-08-04</span></span><br><span class="line"><span class="emphasis">评分:8.9</span></span><br><span class="line"><span class="emphasis">https://p0.meituan.net/movie/47dd790e19dad72b50580641de5608c5199014.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:57</span><br><span class="line">《大话西游之月光宝盒》</span><br><span class="line">主演：周星驰,莫文蔚,吴孟达</span><br><span class="line">上映时间：2014-10-24</span><br><span class="line">评分:9.6</span><br><span class="line">https://p0.meituan.net/movie/92eb862c42c49f8e41e459c369c4512b226610.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:58</span></span><br><span class="line"><span class="emphasis">《飞越疯人院》</span></span><br><span class="line"><span class="emphasis">主演：杰克·尼科尔森,路易丝·弗莱彻,威尔·萨姆森</span></span><br><span class="line"><span class="emphasis">上映时间：1975-11-19(美国)</span></span><br><span class="line"><span class="emphasis">评分:8.8</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/4dddd98730274c3b1464ff0a0ad195e5233381.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:59</span><br><span class="line">《怦然心动》</span><br><span class="line">主演：玛德琳·卡罗尔,卡兰·麦克奥利菲,艾丹·奎因</span><br><span class="line">上映时间：2010-08-06(美国)</span><br><span class="line">评分:8.9</span><br><span class="line">https://p0.meituan.net/movie/457a35fda360cb72090fa6dcbd1db3c1275333.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:60</span></span><br><span class="line"><span class="emphasis">《美国往事》</span></span><br><span class="line"><span class="emphasis">主演：罗伯特·德尼罗,詹姆斯·伍兹,伊丽莎白·麦戈文</span></span><br><span class="line"><span class="emphasis">上映时间：1984-02-17(美国)</span></span><br><span class="line"><span class="emphasis">评分:9.1</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/92198a6fc8c3f5d13aa1bdf203572c0f99438.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:61</span><br><span class="line">《致命魔术》</span><br><span class="line">主演：休·杰克曼,克里斯蒂安·贝尔,迈克尔·凯恩</span><br><span class="line">上映时间：2006-10-20(美国)</span><br><span class="line">评分:8.8</span><br><span class="line">https://p1.meituan.net/movie/75c0d3eb584be030a01f2e26741a8f41251454.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:62</span></span><br><span class="line"><span class="emphasis">《鬼子来了》</span></span><br><span class="line"><span class="emphasis">主演：姜文,姜宏波,陈强</span></span><br><span class="line"><span class="emphasis">上映时间：2000-05-12(法国戛纳)</span></span><br><span class="line"><span class="emphasis">评分:8.9</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/0b507aa44c4dfbbcc91949b69b1b39a168922.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:63</span><br><span class="line">《无敌破坏王》</span><br><span class="line">主演：约翰·C·赖利,萨拉·西尔弗曼,简·林奇</span><br><span class="line">上映时间：2012-11-06</span><br><span class="line">评分:9.1</span><br><span class="line">https://p0.meituan.net/movie/fcc17667b8343131101eeb4c67d90bf9150883.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:64</span></span><br><span class="line"><span class="emphasis">《美丽心灵》</span></span><br><span class="line"><span class="emphasis">主演：罗素·克洛,詹妮弗·康纳利,艾德·哈里斯</span></span><br><span class="line"><span class="emphasis">上映时间：2001-12-21(美国)</span></span><br><span class="line"><span class="emphasis">评分:8.8</span></span><br><span class="line"><span class="emphasis">https://p0.meituan.net/movie/7b7d1f8aa36d7a15463ce6942708a1a7265296.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:65</span><br><span class="line">《蝙蝠侠：黑暗骑士崛起》</span><br><span class="line">主演：克里斯蒂安·贝尔,迈克尔·凯恩,加里·奥德曼</span><br><span class="line">上映时间：2012-08-27</span><br><span class="line">评分:8.9</span><br><span class="line">https://p1.meituan.net/movie/96bb58f3e9d213fb0438987d16d27561379209.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:66</span></span><br><span class="line"><span class="emphasis">《夜访吸血鬼》</span></span><br><span class="line"><span class="emphasis">主演：汤姆·克鲁斯,布拉德·皮特,克尔斯滕·邓斯特</span></span><br><span class="line"><span class="emphasis">上映时间：1994-11-11(美国)</span></span><br><span class="line"><span class="emphasis">评分:8.8</span></span><br><span class="line"><span class="emphasis">https://p0.meituan.net/movie/7ec873ba943f13e3c63789d899bd0e23256871.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:67</span><br><span class="line">《倩女幽魂》</span><br><span class="line">主演：张国荣,王祖贤,午马</span><br><span class="line">上映时间：2011-04-30</span><br><span class="line">评分:9.2</span><br><span class="line">https://p1.meituan.net/movie/6d0510f326bf145dcf49a901fb949b77278838.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:68</span></span><br><span class="line"><span class="emphasis">《哈利·波特与死亡圣器（下）》</span></span><br><span class="line"><span class="emphasis">主演：丹尼尔·雷德克里夫,鲁伯特·格林特,艾玛·沃特森</span></span><br><span class="line"><span class="emphasis">上映时间：2011-08-04</span></span><br><span class="line"><span class="emphasis">评分:9.0</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/68fa7db99e958c47d7aa07d015845a6f335154.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:69</span><br><span class="line">《本杰明·巴顿奇事》</span><br><span class="line">主演：布拉德·皮特,凯特·布兰切特,塔拉吉·P·汉森</span><br><span class="line">上映时间：2008-12-25(美国)</span><br><span class="line">评分:8.8</span><br><span class="line">https://p0.meituan.net/movie/2526f77c650bf7cf3d5ee2dccdeac332244951.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:70</span></span><br><span class="line"><span class="emphasis">《钢琴家》</span></span><br><span class="line"><span class="emphasis">主演：艾德里安·布洛迪,艾米莉娅·福克斯,米哈乌·热布罗夫斯基</span></span><br><span class="line"><span class="emphasis">上映时间：2002-09-25(法国)</span></span><br><span class="line"><span class="emphasis">评分:8.8</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/484171372de45945e8bbbcc97db57e09136701.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:71</span><br><span class="line">《触不可及》</span><br><span class="line">主演：弗朗索瓦·克鲁塞,奥玛·希,安娜·勒尼</span><br><span class="line">上映时间：2011-11-02(法国)</span><br><span class="line">评分:9.1</span><br><span class="line">https://p0.meituan.net/movie/7874ba1378033b0b491df0cc56c43d25221208.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:72</span></span><br><span class="line"><span class="emphasis">《熔炉》</span></span><br><span class="line"><span class="emphasis">主演：孔刘,郑有美,金智英</span></span><br><span class="line"><span class="emphasis">上映时间：2011-09-22(韩国)</span></span><br><span class="line"><span class="emphasis">评分:8.8</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/4ad513be2e9419ec7d7d63ba8cc2b6cc134065.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:73</span><br><span class="line">《初恋这件小事》</span><br><span class="line">主演：马里奥·毛瑞尔,平采娜·乐维瑟派布恩,阿查拉那·阿瑞亚卫考</span><br><span class="line">上映时间：2012-06-05</span><br><span class="line">评分:8.8</span><br><span class="line">https://p1.meituan.net/movie/7ed07b8ea8c0e0d0c7b685d20e3ec64e232004.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:74</span></span><br><span class="line"><span class="emphasis">《大话西游之大圣娶亲》</span></span><br><span class="line"><span class="emphasis">主演：周星驰,朱茵,莫文蔚</span></span><br><span class="line"><span class="emphasis">上映时间：2014-10-24</span></span><br><span class="line"><span class="emphasis">评分:8.8</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/dc2246233a6f5ac1e34c7176b602c8ca174557.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:75</span><br><span class="line">《新龙门客栈》</span><br><span class="line">主演：张曼玉,梁家辉,甄子丹</span><br><span class="line">上映时间：2012-02-24</span><br><span class="line">评分:8.8</span><br><span class="line">https://p0.meituan.net/movie/9e9f12cfc1f54c973dda6c85bd3a139d334520.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:76</span></span><br><span class="line"><span class="emphasis">《甜蜜蜜》</span></span><br><span class="line"><span class="emphasis">主演：黎明,张曼玉,曾志伟</span></span><br><span class="line"><span class="emphasis">上映时间：2015-02-13</span></span><br><span class="line"><span class="emphasis">评分:9.2</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/8ad5a0f521fb15637dfdf9cab38d414453783.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:77</span><br><span class="line">《小鞋子》</span><br><span class="line">主演：默罕默德·阿米尔·纳吉,Kamal Mirkarimi,Behzad Rafi</span><br><span class="line">上映时间：1999-01-22(美国)</span><br><span class="line">评分:9.1</span><br><span class="line">https://p1.meituan.net/movie/bc7b6ababa54e11577d45c05e84a33af54072.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:78</span></span><br><span class="line"><span class="emphasis">《素媛》</span></span><br><span class="line"><span class="emphasis">主演：李来,薛耿求,严志媛</span></span><br><span class="line"><span class="emphasis">上映时间：2013-10-02(韩国)</span></span><br><span class="line"><span class="emphasis">评分:9.1</span></span><br><span class="line"><span class="emphasis">https://p0.meituan.net/movie/4cc4c55c29b77b090485ce9943bf6f87274708.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:79</span><br><span class="line">《萤火之森》</span><br><span class="line">主演：内山昂辉,佐仓绫音,后藤弘树</span><br><span class="line">上映时间：2011-09-17(日本)</span><br><span class="line">评分:9.0</span><br><span class="line">https://p0.meituan.net/movie/5420be40e3b755ffe04779b9b199e935256906.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:80</span></span><br><span class="line"><span class="emphasis">《时空恋旅人》</span></span><br><span class="line"><span class="emphasis">主演：瑞秋·麦克亚当斯,多姆纳尔·格里森,比尔·奈伊</span></span><br><span class="line"><span class="emphasis">上映时间：2013-09-04(英国)</span></span><br><span class="line"><span class="emphasis">评分:8.9</span></span><br><span class="line"><span class="emphasis">https://p0.meituan.net/movie/4abc8c932cfacfc0089e2883765d02d1295222.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:81</span><br><span class="line">《穿条纹睡衣的男孩》</span><br><span class="line">主演：阿沙·巴特菲尔德,维拉·法梅加,大卫·休里斯</span><br><span class="line">上映时间：2008-09-12(英国)</span><br><span class="line">评分:9.0</span><br><span class="line">https://p1.meituan.net/movie/a0e0426a4390f5ecb49d25770a184dc0150779.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:82</span></span><br><span class="line"><span class="emphasis">《窃听风暴》</span></span><br><span class="line"><span class="emphasis">主演：乌尔里希·穆埃,塞巴斯蒂安·科赫,马蒂娜·格德克</span></span><br><span class="line"><span class="emphasis">上映时间：2006-03-23(德国)</span></span><br><span class="line"><span class="emphasis">评分:9.0</span></span><br><span class="line"><span class="emphasis">https://p0.meituan.net/movie/3985eaf3858bea0f2a3d966bf7ee2103178217.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:83</span><br><span class="line">《借东西的小人阿莉埃蒂》</span><br><span class="line">主演：志田未来,神木隆之介,大竹忍</span><br><span class="line">上映时间：2010-07-17(日本)</span><br><span class="line">评分:8.8</span><br><span class="line">https://p0.meituan.net/movie/ce262f261f69fc3d679020402336a4af270365.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:84</span></span><br><span class="line"><span class="emphasis">《恐怖直播》</span></span><br><span class="line"><span class="emphasis">主演：河正宇,李璟荣,李大为</span></span><br><span class="line"><span class="emphasis">上映时间：2013-07-31(韩国)</span></span><br><span class="line"><span class="emphasis">评分:8.8</span></span><br><span class="line"><span class="emphasis">https://p0.meituan.net/movie/b5ff0216e689b3fcc065590c48cd5105255305.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:85</span><br><span class="line">《7号房的礼物》</span><br><span class="line">主演：柳承龙,郑镇荣,朴信惠</span><br><span class="line">上映时间：2013-01-23(韩国)</span><br><span class="line">评分:8.9</span><br><span class="line">https://p1.meituan.net/movie/6a6e74b2c289f9fa4433dd2dc04a7741331638.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:86</span></span><br><span class="line"><span class="emphasis">《海豚湾》</span></span><br><span class="line"><span class="emphasis">主演：里克·奥巴瑞,路易·西霍尤斯,哈迪·琼斯</span></span><br><span class="line"><span class="emphasis">上映时间：2009-07-31(美国)</span></span><br><span class="line"><span class="emphasis">评分:8.9</span></span><br><span class="line"><span class="emphasis">https://p0.meituan.net/movie/7373dbba07b50ce6f24336edb96b2ea4271536.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:87</span><br><span class="line">《忠犬八公物语》</span><br><span class="line">主演：仲代达矢,春川真澄,井川比佐志</span><br><span class="line">上映时间：1987-08-01(日本)</span><br><span class="line">评分:9.0</span><br><span class="line">https://p1.meituan.net/movie/c835b3588d0061ed3b992388a0a96f15160913.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:88</span></span><br><span class="line"><span class="emphasis">《上帝之城》</span></span><br><span class="line"><span class="emphasis">主演：亚历桑德雷·罗德里格斯,艾莉丝·布拉加,莱安德鲁·菲尔米诺</span></span><br><span class="line"><span class="emphasis">上映时间：2002-08-30(巴西)</span></span><br><span class="line"><span class="emphasis">评分:8.9</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/b553d13f30100db731ab6cf45668e52d94703.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:89</span><br><span class="line">《辩护人》</span><br><span class="line">主演：宋康昊,郭度沅,吴达洙</span><br><span class="line">上映时间：2013-12-18(韩国)</span><br><span class="line">评分:8.8</span><br><span class="line">https://p0.meituan.net/movie/8fabf3894b7d12d3d2f6e66404813670265761.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:90</span></span><br><span class="line"><span class="emphasis">《七武士》</span></span><br><span class="line"><span class="emphasis">主演：三船敏郎,志村乔,千秋实</span></span><br><span class="line"><span class="emphasis">上映时间：1954-04-26(日本)</span></span><br><span class="line"><span class="emphasis">评分:9.1</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/73349facab53529ab9e079c6c8c7c059281729.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:91</span><br><span class="line">《英雄本色》</span><br><span class="line">主演：狄龙,张国荣,周润发</span><br><span class="line">上映时间：2017-11-17</span><br><span class="line">评分:9.2</span><br><span class="line">https://p0.meituan.net/movie/3e5f5f3aa4b7e5576521e26c2c7c894d253975.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:92</span></span><br><span class="line"><span class="emphasis">《一一》</span></span><br><span class="line"><span class="emphasis">主演：吴念真,金燕玲,李凯莉</span></span><br><span class="line"><span class="emphasis">上映时间：2000-09-20(法国)</span></span><br><span class="line"><span class="emphasis">评分:8.9</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/2c0a5fedf4b43d142121b91c6ccabe1b59051.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:93</span><br><span class="line">《完美的世界》</span><br><span class="line">主演：凯文·科斯特纳,克林特·伊斯特伍德,T·J·劳瑟</span><br><span class="line">上映时间：1993-11-24(美国)</span><br><span class="line">评分:8.9</span><br><span class="line">https://p1.meituan.net/movie/30310858fdab34c7a17cfd7ec8ad8bfc112201.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:94</span></span><br><span class="line"><span class="emphasis">《海洋》</span></span><br><span class="line"><span class="emphasis">主演：雅克·贝汉,姜文,兰斯洛特·佩林</span></span><br><span class="line"><span class="emphasis">上映时间：2011-08-12</span></span><br><span class="line"><span class="emphasis">评分:9.0</span></span><br><span class="line"><span class="emphasis">https://p0.meituan.net/movie/0018b57299d0d4540330a31244c880a9112971.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:95</span><br><span class="line">《爱·回家》</span><br><span class="line">主演：俞承豪,金艺芬,童孝熙</span><br><span class="line">上映时间：2002-04-05(韩国)</span><br><span class="line">评分:9.0</span><br><span class="line">https://p1.meituan.net/movie/36a893c53a13f9bb934071b86ae3b5c492427.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:96</span></span><br><span class="line"><span class="emphasis">《黄金三镖客》</span></span><br><span class="line"><span class="emphasis">主演：克林特·伊斯特伍德,李·范·克里夫,埃里·瓦拉赫</span></span><br><span class="line"><span class="emphasis">上映时间：1966-12-23(意大利)</span></span><br><span class="line"><span class="emphasis">评分:8.9</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/9bff56ed3ea38bb1825daa1d354bc92352781.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:97</span><br><span class="line">《我爱你》</span><br><span class="line">主演：宋在浩,李顺才,尹秀晶</span><br><span class="line">上映时间：2011-02-17(韩国)</span><br><span class="line">评分:9.0</span><br><span class="line">https://p1.meituan.net/movie/ed50b58bf636d207c56989872a91f4cf305138.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:98</span></span><br><span class="line"><span class="emphasis">《迁徙的鸟》</span></span><br><span class="line"><span class="emphasis">主演：雅克·贝汉,Philippe Labro</span></span><br><span class="line"><span class="emphasis">上映时间：2001-12-12(法国)</span></span><br><span class="line"><span class="emphasis">评分:9.1</span></span><br><span class="line"><span class="emphasis">https://p1.meituan.net/movie/a1634f4e49c8517ae0a3e4adcac6b0dc43994.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line">排名:99</span><br><span class="line">《阿飞正传》</span><br><span class="line">主演：张国荣,张曼玉,刘德华</span><br><span class="line">上映时间：2018-06-25</span><br><span class="line">评分:8.8</span><br><span class="line">https://p0.meituan.net/movie/885fc379c614a2b4175587b95ac98eb95045650.jpg@160w<span class="emphasis">_220h_</span>1e<span class="emphasis">_1c</span></span><br><span class="line"><span class="emphasis">--------------------</span></span><br><span class="line"><span class="emphasis">排名:100</span></span><br><span class="line"><span class="emphasis">《龙猫》</span></span><br><span class="line"><span class="emphasis">主演：帕特·卡洛尔,蒂姆·达利,丽娅·萨隆加</span></span><br><span class="line"><span class="emphasis">上映时间：2018-12-14</span></span><br><span class="line"><span class="emphasis">评分:9.2</span></span><br><span class="line"><span class="emphasis">https://p0.meituan.net/movie/c304c687e287c7c2f9e22cf78257872d277201.jpg@160w_</span>220h<span class="emphasis">_1e_</span>1c</span><br><span class="line">--------------------</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+<h3 id="保存到txt文件"><a href="#保存到txt文件" class="headerlink" title="保存到txt文件"></a>保存到txt文件</h3>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+	
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Knowledge is priceless, thanks for your support ！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat-reward-image.png" alt="吴健伟_Jeremy 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    吴健伟_Jeremy
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://coderjeremy.github.io/2019/01/18/Python爬取猫眼电影排行榜/" title="Python爬取猫眼电影排行榜">https://coderjeremy.github.io/2019/01/18/Python爬取猫眼电影排行榜/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" <i class="fa fa-tag"></i> python</a>
+          
+            <a href="/tags/lxml/" <i class="fa fa-tag"></i> lxml</a>
+          
+            <a href="/tags/requests/" <i class="fa fa-tag"></i> requests</a>
+          
+            <a href="/tags/json/" <i class="fa fa-tag"></i> json</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/14/Python学习笔记/" rel="next" title="Python学习笔记">
+                <i class="fa fa-chevron-left"></i> Python学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/profilephoto.jpg"
+                alt="吴健伟_Jeremy" />
+            
+              <p class="site-author-name" itemprop="name">吴健伟_Jeremy</p>
+              <p class="site-description motion-element" itemprop="description">艰险我奋进，困乏我多情</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/CoderJeremy" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/chinavae0514" target="_blank" title="Weibo"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://blog.csdn.net/Coder_Jeremy" target="_blank" title="CSDN"><i class="fa fa-fw fa-copyright"></i>CSDN</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://jeremywu.tuchong.com/" target="_blank" title="Tuchong"><i class="fa fa-fw fa-camera"></i>Tuchong</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python爬取猫眼电影排行榜"><span class="nav-number">1.</span> <span class="nav-text">Python爬取猫眼电影排行榜</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自己写的"><span class="nav-number">1.1.</span> <span class="nav-text">自己写的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#书上用的正则表达式，这里跳过"><span class="nav-number">1.2.</span> <span class="nav-text">书上用的正则表达式，这里跳过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爬取结果"><span class="nav-number">1.3.</span> <span class="nav-text">爬取结果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输出结果"><span class="nav-number">1.3.1.</span> <span class="nav-text">输出结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存到txt文件"><span class="nav-number">1.3.2.</span> <span class="nav-text">保存到txt文件</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+	<i class="fa fa-pencil"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴健伟_Jeremy</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">60k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">54 分钟</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+<script>
+  	var _mtac = {};
+  	(function() {
+  		var mta = document.createElement("script");
+  		mta.src = "https://pingjs.qq.com/h5/stats.js?v2.0.4";
+  		mta.setAttribute("name", "MTAH5");
+  		mta.setAttribute("sid", "500649602");
+
+  		var s = document.getElementsByTagName("script")[0];
+  		s.parentNode.insertBefore(mta, s);
+  	})();
+</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=66059553";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+      <div>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bbcbc036fce79a3" async = "async" ></script>
+</div>
+
+      </div>
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'BWd1hKwUCCvYPlEQVsx0DMi2-gzGzoHsz',
+        appKey: 'Gm6wrsDlLqQaKvCc43GiFLYN',
+        placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1}))
+                .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function () {
+                  console.log('Failed to create');
+                });
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "BWd1hKwUCCvYPlEQVsx0DMi2-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "BWd1hKwUCCvYPlEQVsx0DMi2-gzGzoHsz",
+                'X-LC-Key': "Gm6wrsDlLqQaKvCc43GiFLYN",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+</body>
+</html>
