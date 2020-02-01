@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -149,9 +149,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '6.4.1',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     fastclick: false,
     lazyload: false,
@@ -579,7 +579,7 @@
           
           列出磁盘使用量df1# df [‐ahikHTm] 目录或文件名
 
--a ：列出所有的文件系统，包括系统特有的 /proc 等文件系统；-k ：以 KBytes 的容量显示各文件系统；-m ：以 MB
+-a ：列出所有的文件系统，包括系统特有的 /proc 等文件系统；-k ：以 KBytes 的容量显示各文件系统；-m ：以 MBytes 的容量显示各文件系统；-h ：以人们较易阅读的 GBytes，MBytes，KBytes 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -795,7 +795,7 @@
           
           系统用户账号的管理添加用户1# useradd &lt;选项&gt; 用户名  	#添加新的用户账号
 
--c comment 指定一段用户注释性描述。-d 目录，指定用户主目录，如果此目录不存在，则同
+-c comment 指定一段用户注释性描述。-d 目录，指定用户主目录，如果此目录不存在，则同时配合使用-m 选项，可以自动创建主目录。-g 用户组，指定用户所属的用户组（主组）。-G 用户组，
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -991,7 +991,7 @@
       
         
           
-          文件基本属性123456789101112[jeremy@localhost ~]$ lltotal 0drwxrwxr-x. 2 jeremy jeremy 110 Oct 17 20:11 aaa
+          文件基本属性123456789101112[jeremy@localhost ~]$ lltotal 0drwxrwxr-x. 2 jeremy jeremy 110 Oct 17 20:11 aaadrwxrwxr-x. 3 jeremy jeremy  30 Oct  6 20:43 bbbdr
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1205,7 +1205,7 @@
       
         
           
-          Linux 系统目录结构123456789101112131415161718192021222324252627282930313233343536373839404142434445/bin：bi
+          Linux 系统目录结构123456789101112131415161718192021222324252627282930313233343536373839404142434445/bin：bin 是 Binary 的缩写，这个目录存放着最经常使用的命令。实际上是链接到/usr/bin。/bo
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1420,7 +1420,8 @@
         
           
           终端12# clear		#清空当前终端命令历史记录# exit		#退出终端
-关机和重启1234# reboot	#重启# shutdown -r now	#重启。等同reboot# shutdow
+关机和重启1234# reboot	#重启# shutdown -r now	#重启。等同reboot# shutdown -h now	#关机，慎用，通常情况远程服务器关机后，物理机无法重启# halt	#关机，慎用
+
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1636,7 +1637,9 @@
           
           修改/重置普通用户密码
 passwd #用于当前操作用户自行修改密码。注意：修改密码时，需要输入当前操作用户的当前密码。root 用户也可使用此命令修改自行修改密码。
-passwd &lt;用户名&g
+passwd &lt;用户名&gt; #此命令只能由 root 用户执行，当前用户是 root时，可更改任意其它用户的密码
+
+修改/
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2065,7 +2068,9 @@ passwd &lt;用户名&g
         
           
           快速排序算法思想：二分法，分治法，递归
-排序实例6    1    2    7    9    3    4    5    10    86为基准，也就是temp先从右找第一个比基准数小的，再从左
+排序实例6    1    2    7    9    3    4    5    10    86为基准，也就是temp先从右找第一个比基准数小的，再从左找第一个比基准数大的，进行交换，这里必须从右边先找的原因是因为基准数定的是最左的数。
+
+如果选取最左
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2302,6 +2307,10 @@ passwd &lt;用户名&g
 
 数据在计算机中多采用 并行传输  方式
 数据在通信线路上的传输方式一般是 串行传输 
+
+数据通信的基础知识数据通信系统的模型
+数据通信基本概念
+模拟信号（连续信号） ：一般是正弦或余弦
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2530,7 +2539,8 @@ passwd &lt;用户名&g
           因特网发展的三个阶段第一阶段：从单个网络ARPANET向互联网发展的过程ARPANET：
 
 1969年美国国防部创建的第一个分组交换网
-1983年TCP/IP协议成为ARPANET上的标准协议，因特网
+1983年TCP/IP协议成为ARPANET上的标准协议，因特网诞生
+1990年关闭第二阶段：三级结构的因特网1985年美国国家科学基金会：NSFNET三级计算机网
           ...
           <!--noindex-->
           <div class="post-button text-center">

@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -149,9 +149,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '6.4.1',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     fastclick: false,
     lazyload: false,
@@ -578,7 +578,7 @@
         
           
           打开hexo目录，运行git bush，安装插件$ npm install hexo-symbols-count-time --save
-修改博客配置文件，添加以下代码12345symbols_cou
+修改博客配置文件，添加以下代码12345symbols_count_time:symbols: truetime: truetotal_symbols: true
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -810,7 +810,10 @@
 等待安装完成
 
 添加配置文件
-打开hexo目录下配置文件_c
+打开hexo目录下配置文件_config.yml，末尾添加以下配置
+
+# Extensions
+## Plugins: http:
           ...
           <!--noindex-->
           <div class="post-button text-center">

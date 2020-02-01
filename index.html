@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -149,9 +149,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '6.4.1',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     fastclick: false,
     lazyload: false,
@@ -469,7 +469,7 @@
                 
               
 
-              <time title="创建时间：2020-02-01 16:36:46 / 修改时间：16:38:22" itemprop="dateCreated datePublished" datetime="2020-02-01T16:36:46+08:00">2020-02-01</time>
+              <time title="创建时间：2020-02-01 16:36:46 / 修改时间：16:42:22" itemprop="dateCreated datePublished" datetime="2020-02-01T16:36:46+08:00">2020-02-01</time>
             
 
             
@@ -559,13 +559,15 @@
       
         
           
-          Java学习笔记Java初步字节
+          Java初步字节
 位（bit): 一个数字0或1
 字节（Byte）: 8位=1字节，这是数据存储的最小单位
 1KB = 1024 Byte,1MB = 1024 KB
 
 命令提示符
-M
+MS-DOS(Microsoft Disk Operating System)
+启动 ：win + R
+切换盘符 ： 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -768,7 +770,11 @@ M
 值类型- 整型
 - 浮点型
 - 字符型
-
+- 布尔型
+- 枚举型
+整型- sbyte ：有符号，1字节，
+- byte  ：无符号，1字节
+-
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -969,7 +975,9 @@ M
 
 仓库区/本地仓库（Respository）  确定的文件保存到仓库，成为一个新的版本，并且对他人可见
 
-暂存区(Index/
+暂存区(Index/unStage)  暂存已经修改的文件，最后统一提交到git仓库
+
+工作区（Workspace）  
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1181,7 +1189,9 @@ M
 - 面向对象编程
 C# 的特点？- 简单、安全
 - 面向对象
-    - 封装：将代码看作一个整体，只提供对象名和参数，提高安全
+    - 封装：将代码看作一个整体，只提供对象名和参数，提高安全性
+    - 继承：C#仅支持单继承
+    - 多态：通过继承和实现接口的方式，让类或接口中的成
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1385,7 +1395,9 @@ Microsoft开发
 C# 功能
 布尔条件（Boolean Conditions)
 自动垃圾回收(Automatic Garbase Collection)
-标准库(S
+标准库(Standard Library)
+组件版本(Assembly Versioning)
+属性(Prop
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1605,8 +1617,10 @@ C# 功能
 新建草稿：hexo publish 文章名称
 生成：hexo g
 本地服务器：hexo s
-部署：h
-          ...
+部署：hexo d
+
+
+          
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/07/09/HEXO常用指令/#more" rel="contents">
@@ -1837,7 +1851,7 @@ lxml 解析 html
 xpath 定位元素
 json 存文件
 
-自己写的1234567891011121314151617181
+自己写的123456789101112131415161718192021222324252627282930313233343536373839404142434
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2036,7 +2050,7 @@ json 存文件
           切片
 产生列表的子集字符串、列表、元组都支持切片操作切片的语法：[起始 ： 结束 ：步长]左闭右开 步长表示选取的间隔 默认是 1
 
-1234567字符串切片name = "abcdefghijk"p
+1234567字符串切片name = "abcdefghijk"print(name[4:6]) # 取下表4-6，也就是name[4],name[5]print(n
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2253,7 +2267,9 @@ json 存文件
           
 在linux中要求从一个文件中读取用户名和密码，并批量添加账户
 
-文件格式：12345[root@localhost jeremy]# cat users.list apple 12345banan
+文件格式：12345[root@localhost jeremy]# cat users.list apple 12345banana 123456orange 123123pear 123123
+第一步：读取用户名和密码
+创建 u
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2470,7 +2486,8 @@ json 存文件
           ShellShell 是一个用C语言编写的程序，它既是一种命令语言，又是一种程序设计语言。
 Shell ScriptShell脚本，用shell编写的脚本程序
 First Shell
-创建一个.sh为
+创建一个.sh为文件后缀的文件，hello.sh
+内容如下1234#!/bin/bash#注释#author : j
           ...
           <!--noindex-->
           <div class="post-button text-center">
