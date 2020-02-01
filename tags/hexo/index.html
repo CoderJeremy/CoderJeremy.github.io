@@ -177,7 +177,7 @@
   <meta name="description" content="艰险我奋进，困乏我多情">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Jeremy&#39;s Blog">
-<meta property="og:url" content="https://coderjeremy.github.io/tags/Hexo/index.html">
+<meta property="og:url" content="https://coderjeremy.github.io/tags/hexo/index.html">
 <meta property="og:site_name" content="Jeremy&#39;s Blog">
 <meta property="og:description" content="艰险我奋进，困乏我多情">
 <meta property="og:locale" content="zh-CN">
@@ -192,7 +192,7 @@
 
 
 
-  <link rel="canonical" href="https://coderjeremy.github.io/tags/Hexo/"/>
+  <link rel="canonical" href="https://coderjeremy.github.io/tags/hexo/"/>
 
 
 
@@ -202,7 +202,7 @@
   };
 </script>
 
-  <title>标签: Hexo | Jeremy's Blog</title>
+  <title>标签: hexo | Jeremy's Blog</title>
   
 
 
@@ -441,7 +441,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>Hexo<small>标签</small>
+        <h1>hexo<small>标签</small>
         </h1>
       </div>
 
@@ -453,37 +453,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2018/09/14/NexT 6 添加字数和阅读时间统计/" itemprop="url">
+            <a class="post-title-link" href="/2019/07/09/HEXO常用指令/" itemprop="url">
               
-                <span itemprop="name">NexT 6 添加字数和阅读时间统计</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-14T22:04:25+08:00"
-              content="2018-09-14" >
-          09-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/09/hexo-rss/" itemprop="url">
-              
-                <span itemprop="name">如何给Hexo正确添加RSS订阅</span>
+                <span itemprop="name">HEXO常用指令</span>
               
             </a>
         
@@ -491,9 +463,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-09T21:36:23+08:00"
-              content="2018-09-09" >
-          09-09
+              datetime="2019-07-09T00:12:23+08:00"
+              content="2019-07-09" >
+          07-09
         </time>
       </div>
 
@@ -554,7 +526,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -640,7 +612,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">18</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -711,7 +691,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
 	<i class="fa fa-pencil"></i>
   </span>
@@ -723,7 +703,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">60k</span>
+    <span title="站点总字数">100k</span>
   
 
   
@@ -732,7 +712,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">54 分钟</span>
+    <span title="站点阅读时长">1:31</span>
   
 </div>
 
@@ -1395,6 +1375,35 @@
         var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
           return $(e).text()
         }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+  
+</body>
+</html>
+().join('\n')
         var ta = document.createElement('textarea')
         document.body.appendChild(ta)
         ta.style.position = 'absolute'
