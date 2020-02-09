@@ -174,16 +174,18 @@
 
 
 
-  <meta name="description" content="艰险我奋进，困乏我多情">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jeremy&#39;s Blog">
-<meta property="og:url" content="https://coderjeremy.github.io/tags/CentOs/index.html">
+  <meta name="description" content="Java8新特性函数式接口概念 有且只有一个抽象方法的接口，称之为函数式接口 接口中可以包含其他的方法（默认，静态，私有），但是只能有一个抽象方法。 @FunctionalInterface注解  检测接口是否是一个函数式接口 是；编译成功 否；编译失败（接口中没有抽象方法或抽象方法的个数大于1）   格式；1234@FunctionalInterfacepublic interface 接口名&amp;">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java8新特性">
+<meta property="og:url" content="https://coderjeremy.github.io/2020/02/09/Java8新特性/index.html">
 <meta property="og:site_name" content="Jeremy&#39;s Blog">
-<meta property="og:description" content="艰险我奋进，困乏我多情">
+<meta property="og:description" content="Java8新特性函数式接口概念 有且只有一个抽象方法的接口，称之为函数式接口 接口中可以包含其他的方法（默认，静态，私有），但是只能有一个抽象方法。 @FunctionalInterface注解  检测接口是否是一个函数式接口 是；编译成功 否；编译失败（接口中没有抽象方法或抽象方法的个数大于1）   格式；1234@FunctionalInterfacepublic interface 接口名&amp;">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-09T03:00:04.314Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jeremy&#39;s Blog">
-<meta name="twitter:description" content="艰险我奋进，困乏我多情">
+<meta name="twitter:title" content="Java8新特性">
+<meta name="twitter:description" content="Java8新特性函数式接口概念 有且只有一个抽象方法的接口，称之为函数式接口 接口中可以包含其他的方法（默认，静态，私有），但是只能有一个抽象方法。 @FunctionalInterface注解  检测接口是否是一个函数式接口 是；编译成功 否；编译失败（接口中没有抽象方法或抽象方法的个数大于1）   格式；1234@FunctionalInterfacepublic interface 接口名&amp;">
 
 
 
@@ -192,7 +194,7 @@
 
 
 
-  <link rel="canonical" href="https://coderjeremy.github.io/tags/CentOs/"/>
+  <link rel="canonical" href="https://coderjeremy.github.io/2020/02/09/Java8新特性/"/>
 
 
 
@@ -202,7 +204,7 @@
   };
 </script>
 
-  <title>标签: CentOs | Jeremy's Blog</title>
+  <title>Java8新特性 | Jeremy's Blog</title>
   
 
 
@@ -249,7 +251,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -306,7 +308,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
@@ -359,34 +361,6 @@
   
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
   
 
   
@@ -434,198 +408,399 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>CentOs<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://coderjeremy.github.io/2020/02/09/Java8新特性/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴健伟_Jeremy">
+      <meta itemprop="description" content="艰险我奋进，困乏我多情">
+      <meta itemprop="image" content="/images/profilephoto.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeremy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/10/31/Linux磁盘管理/" itemprop="url">
-              
-                <span itemprop="name">Linux磁盘管理</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Java8新特性
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-31T13:45:17+08:00"
-              content="2018-10-31" >
-          10-31
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-02-09 10:58:50 / 修改时间：11:00:04" itemprop="dateCreated datePublished" datetime="2020-02-09T10:58:50+08:00">2020-02-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/02/09/Java8新特性/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/02/09/Java8新特性/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/02/09/Java8新特性/" class="leancloud_visitors" data-flag-title="Java8新特性">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+				 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">3.6k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">3 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/31/Linux用户管理/" itemprop="url">
-              
-                <span itemprop="name">Linux用户管理</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-31T12:24:19+08:00"
-              content="2018-10-31" >
-          10-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/31/Linux文件基本属性及权限设置/" itemprop="url">
-              
-                <span itemprop="name">Linux文件基本属性及权限设置</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-31T10:29:56+08:00"
-              content="2018-10-31" >
-          10-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/30/Linux文件管理及操作/" itemprop="url">
-              
-                <span itemprop="name">Linux文件管理及操作</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-30T21:57:42+08:00"
-              content="2018-10-30" >
-          10-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/30/Linux常用命令/" itemprop="url">
-              
-                <span itemprop="name">Linux常用命令</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-30T20:54:13+08:00"
-              content="2018-10-30" >
-          10-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/30/Linux修改密码/" itemprop="url">
-              
-                <span itemprop="name">Linux修改密码</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-30T20:26:52+08:00"
-              content="2018-10-30" >
-          10-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <h1 id="Java8新特性"><a href="#Java8新特性" class="headerlink" title="Java8新特性"></a>Java8新特性</h1><h2 id="函数式接口"><a href="#函数式接口" class="headerlink" title="函数式接口"></a>函数式接口</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li>有且只有一个抽象方法的接口，称之为函数式接口</li>
+<li>接口中可以包含其他的方法（默认，静态，私有），但是只能有一个抽象方法。</li>
+<li><p><code>@FunctionalInterface</code>注解</p>
+<ul>
+<li>检测接口是否是一个函数式接口<ul>
+<li>是；编译成功</li>
+<li>否；编译失败（接口中没有抽象方法或抽象方法的个数大于1）</li>
+</ul>
+</li>
+<li>格式；<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> 接口名</span>&#123;</span><br><span class="line">    抽象方法</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>使用；一般可以作为方法的参数和返回值类型</p>
+</li>
+</ul>
+<h3 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h3><h4 id="Lambda的延迟执行"><a href="#Lambda的延迟执行" class="headerlink" title="Lambda的延迟执行"></a>Lambda的延迟执行</h4><ul>
+<li>Lambda特点；延迟执行</li>
+<li>作用；提升性能</li>
+</ul>
+<h3 id="常用函数式接口"><a href="#常用函数式接口" class="headerlink" title="常用函数式接口"></a>常用函数式接口</h3><h4 id="Supplier接口"><a href="#Supplier接口" class="headerlink" title="Supplier接口"></a>Supplier接口</h4><ul>
+<li><code>java.util.function.Supplier&lt;T&gt;</code>；接口仅包含一个无参的方法；<code>T get()</code>。用来获取一个泛型参数指定类型的对象数据。</li>
+<li>生产型接口；指定接口的泛型是什么类型，那么接口中的get方法就会产生什么类型的数据</li>
+</ul>
+<h4 id="Consumer接口"><a href="#Consumer接口" class="headerlink" title="Consumer接口"></a>Consumer接口</h4><ul>
+<li><code>java.util.function.Consumer&lt;T&gt;</code>；接口包含抽象方法<code>void accept(T t)</code>，意为消费一个指定泛型数据</li>
+<li>消费型接口，泛型执行什么类型，就可以使用accept方法消费什么类型的数据，至于具体怎么消费，需要定义计算</li>
+<li>默认方法；<code>addThen</code><ul>
+<li>需要两个Consumer接口，可以把两个Consumer接口组合到一起，在对数据进行消费</li>
+<li>源码；<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">default</span> Consumer&lt;<span class="function">T <span class="title">andThen</span><span class="params">(Consumer&lt;? <span class="keyword">super</span> T&gt; after)</span></span>&#123;</span><br><span class="line">    Objects.requirNonNull(after);</span><br><span class="line">    <span class="keyword">return</span> (T t)-&gt;&#123;accept(t);after.accept(t);&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Predicate接口"><a href="#Predicate接口" class="headerlink" title="Predicate接口"></a>Predicate接口</h3><ul>
+<li><code>java.util.function.Predicate&lt;T&gt;</code>接口；对某种数据类型的数据进行判断，结果返回一个Boolean值</li>
+<li>抽象方法；<code>boolean test(T t)</code>；用来对指定数据类型数据进行判断的方法</li>
+<li><p>默认方法；</p>
+<ul>
+<li><p><code>add</code>；与</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">default</span> Predicate&lt;T&gt; <span class="title">and</span><span class="params">(Predicate&lt;? <span class="keyword">super</span> T&gt; other)</span> </span>&#123;</span><br><span class="line">Objects.requireNonNull(other);</span><br><span class="line"><span class="keyword">return</span> (t) ‐&gt; test(t) &amp;&amp; other.test(t);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>or</code>；或</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">default</span> Predicate&lt;T&gt; <span class="title">or</span><span class="params">(Predicate&lt;? <span class="keyword">super</span> T&gt; other)</span> </span>&#123;</span><br><span class="line">Objects.requireNonNull(other);</span><br><span class="line"><span class="keyword">return</span> (t) ‐&gt; test(t) || other.test(t);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>negate</code>；非</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">default</span> Predicate&lt;T&gt; <span class="title">negate</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> (t) ‐&gt; !test(t);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Function接口"><a href="#Function接口" class="headerlink" title="Function接口"></a>Function接口</h3><ul>
+<li><code>java.util.function.Function&lt;T,R&gt;</code>；接口用来根据一个类型的数据得到另一个类型的数据，前者称为前置条件，后者称为后置条件</li>
+<li>抽象方法；<code>R apply(T t)</code>；根据类型T的参数获取类型R的的结果（一般用于类型转换）</li>
+<li>默认方法；<ul>
+<li><code>andThen</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="Stream流式思想"><a href="#Stream流式思想" class="headerlink" title="Stream流式思想"></a>Stream流式思想</h2><ul>
+<li>JDK1.8之后</li>
+<li>关注做什么，不关注怎么做</li>
+<li>“Stream流”其实是一个集合元素的函数模型，它并不是集合，也不是数据结构，其本身并不存储任何元素（或其地址值）</li>
+<li>Stream（流）是一个来自数据源的元素队列<ul>
+<li>元素是特定类型的对象，形成一个队列。 Java中的Stream并不会存储元素，而是按需计算。</li>
+<li>数据源流的来源。 可以是集合，数组等。</li>
+</ul>
+</li>
+<li>Stream操作还有两个基础的特征：<ul>
+<li>Pipelining: 中间操作都会返回流对象本身。 这样多个操作可以串联成一个管道， 如同流式风格（fluent style）。 这样做可以对操作进行优化， 比如延迟执行(laziness)和短路( short-circuiting)。</li>
+<li>内部迭代： 以前对集合遍历都是通过Iterator或者增强for的方式, 显式的在集合外部进行迭代， 这叫做外部迭代。 Stream提供了内部迭代的方式，流可以直接调用遍历方法。</li>
+</ul>
+</li>
+<li>使用步骤<ol>
+<li>获取数据源</li>
+<li>数据转换</li>
+<li>执行操作获取想要的结果</li>
+</ol>
+</li>
+<li>注意；<ul>
+<li>Stream流属于管道流，只能被消费一次，第一个Stream流调用完毕，就会关闭。<h3 id="获取流"><a href="#获取流" class="headerlink" title="获取流"></a>获取流</h3></li>
+</ul>
+</li>
+<li>两种方法<ol>
+<li>所有的<code>Collection</code>集合都可以通过<code>stream</code>默认方法获取流</li>
+<li><code>Stream</code>接口的静态方法<code>of</code>可以获取数组对应的流<blockquote>
+<p><code>java.util.stream.Stream&lt;T&gt;</code>是Java8新加入的最常用的流接口</p>
+</blockquote>
+<h4 id="根据COllection获取流"><a href="#根据COllection获取流" class="headerlink" title="根据COllection获取流"></a>根据COllection获取流</h4></li>
+</ol>
+</li>
+<li><code>default Stream&lt;E&gt; stream()</code></li>
+</ul>
+<h4 id="根据Stream接口获取流"><a href="#根据Stream接口获取流" class="headerlink" title="根据Stream接口获取流"></a>根据Stream接口获取流</h4><ul>
+<li><code>static &lt;T&gt; Stream&lt;T&gt; of(T...values)</code>；参数是一个可变参数，可以传递一个数组</li>
+</ul>
+<h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><ul>
+<li>延迟方法；返回值类型仍然是<code>Stream</code>接口自身类型的方法，因此支持链式调用。</li>
+<li>终结方法；返回值类型不再是<code>Stream</code>接口自身类型的方法，因此不再支持类似<code>StringBuilder</code>那样的链式调用<h5 id="逐一处理；foreach"><a href="#逐一处理；foreach" class="headerlink" title="逐一处理；foreach"></a>逐一处理；foreach</h5></li>
+<li><code>void forEach(Consumer&lt;? super T&gt; action)</code>；该方法接收一个<code>Consumer</code>接口函数，会将每一个流元素交给该函数进行处理</li>
+<li>forEach方法，用来遍历流中的数据，是一个终结方法，遍历之后就不能继续调用Stream流中的其他方法<h5 id="过滤；filter"><a href="#过滤；filter" class="headerlink" title="过滤；filter"></a>过滤；filter</h5></li>
+<li><code>Stream&lt;T&gt; filter(Predicate&lt;? super T&gt; predicate)</code>；可以通过filter方法将一个流转换为另一个子集流<h5 id="映射；map"><a href="#映射；map" class="headerlink" title="映射；map"></a>映射；map</h5></li>
+<li><code>&lt;R&gt; Stream&lt;R&gt; map(Function&lt;? super T, ? extends R&gt; mapper);</code>；将流中的元素映射到另一个流中，可以使用map方法<h5 id="统计个数；count"><a href="#统计个数；count" class="headerlink" title="统计个数；count"></a>统计个数；count</h5></li>
+<li><code>long count()</code>；用于统计Stream流中元素的个数</li>
+<li>count方法是一个终结方法，返回值是一个long类型的整数，所有不能再继续调用Stream流中的其他方法<h5 id="取用前几个；limit"><a href="#取用前几个；limit" class="headerlink" title="取用前几个；limit"></a>取用前几个；limit</h5></li>
+<li><code>Stream&lt;T&gt; limit(long maxSize);</code>；用于截取流中的元素</li>
+<li>limit是一个延迟方法，只是对流中的元素进行截取，返回是一个新的流，所以可以继续调用Stream流中的其他方法<h5 id="跳过前几个；skip"><a href="#跳过前几个；skip" class="headerlink" title="跳过前几个；skip"></a>跳过前几个；skip</h5></li>
+<li><code>Stream&lt;T&gt; skip(long n);</code>；用于跳过元素</li>
+<li>如果流的当前长度大于n，则跳过前n个，否则会得到一个长度为0的空流<h5 id="组合；concat"><a href="#组合；concat" class="headerlink" title="组合；concat"></a>组合；concat</h5></li>
+<li><code>static &lt;T&gt; Stream&lt;T&gt; concat(Stream&lt;? extends T&gt; a, Stream&lt;? extends T&gt; b)</code>；将两个流合并为一个流</li>
+<li>这是一个静态方法，与String中的concat方法不同</li>
+</ul>
+<h2 id="方法引用"><a href="#方法引用" class="headerlink" title="方法引用"></a>方法引用</h2><ul>
+<li>方法引用符：双冒号<code>::</code>为引用运算符，而它所在的表达式被称为<code>方法引用</code>。如果Lambda要表达的函数方案已经存在于某个方法的实现中，那么则可以通过双冒号来引用该方法作为Lambda的替代者</li>
+<li>语义；<ul>
+<li>Lambda表达式写法： <code>s -&gt; System.out.println(s)</code>；拿到参数之后经Lambda之手，继而传递给 System.out.println 方法去处理。</li>
+<li>方法引用写法：<code>System.out::println</code>；直接让<code>System.out</code> 中的 <code>println</code> 方法来取代<code>Lambda</code>。两种写法的执行效果完全一样，而第二种方法引用的写法复用了已有方案，更加简洁。<blockquote>
+<p>注:Lambda中传递的参数一定是方法引用中的那个方法可以接收的类型,否则会抛出异常</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>通过对象名引用成员方法<ul>
+<li>通过对象名引用成员方法，使用前提是对象名已经存在，成员方法也是已经存在的</li>
+</ul>
+</li>
+<li>通过类名称引用静态方法</li>
+<li>通过super引用成员方法</li>
+<li>通过this引用成员方法、</li>
+<li>类的构造器引用</li>
+<li>数组的构造器引用</li>
+</ul>
 
       
     </div>
 
+    
+
+    
+    
+    
+	
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Knowledge is priceless, thanks for your support ！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat-reward-image.png" alt="吴健伟_Jeremy 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    吴健伟_Jeremy
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://coderjeremy.github.io/2020/02/09/Java8新特性/" title="Java8新特性">https://coderjeremy.github.io/2020/02/09/Java8新特性/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" <i class="fa fa-tag"></i> Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/05/Java网络编程/" rel="next" title="Java网络编程">
+                <i class="fa fa-chevron-left"></i> Java网络编程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/09/Java测试、反射、注解/" rel="prev" title="Java测试、反射、注解">
+                Java测试、反射、注解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -646,8 +821,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -817,6 +1001,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java8新特性"><span class="nav-number">1.</span> <span class="nav-text">Java8新特性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数式接口"><span class="nav-number">1.1.</span> <span class="nav-text">函数式接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">1.1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数式编程"><span class="nav-number">1.1.2.</span> <span class="nav-text">函数式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Lambda的延迟执行"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Lambda的延迟执行</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用函数式接口"><span class="nav-number">1.1.3.</span> <span class="nav-text">常用函数式接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Supplier接口"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">Supplier接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Consumer接口"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">Consumer接口</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Predicate接口"><span class="nav-number">1.1.4.</span> <span class="nav-text">Predicate接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function接口"><span class="nav-number">1.1.5.</span> <span class="nav-text">Function接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stream流式思想"><span class="nav-number">1.2.</span> <span class="nav-text">Stream流式思想</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取流"><span class="nav-number">1.2.1.</span> <span class="nav-text">获取流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#根据COllection获取流"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">根据COllection获取流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#根据Stream接口获取流"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">根据Stream接口获取流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用方法"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#逐一处理；foreach"><span class="nav-number">1.2.1.3.1.</span> <span class="nav-text">逐一处理；foreach</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#过滤；filter"><span class="nav-number">1.2.1.3.2.</span> <span class="nav-text">过滤；filter</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#映射；map"><span class="nav-number">1.2.1.3.3.</span> <span class="nav-text">映射；map</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#统计个数；count"><span class="nav-number">1.2.1.3.4.</span> <span class="nav-text">统计个数；count</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#取用前几个；limit"><span class="nav-number">1.2.1.3.5.</span> <span class="nav-text">取用前几个；limit</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#跳过前几个；skip"><span class="nav-number">1.2.1.3.6.</span> <span class="nav-text">跳过前几个；skip</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#组合；concat"><span class="nav-number">1.2.1.3.7.</span> <span class="nav-text">组合；concat</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法引用"><span class="nav-number">1.3.</span> <span class="nav-text">方法引用</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1007,6 +1207,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
 
   
 
@@ -1386,43 +1590,40 @@
   
   <script>
     
-    function showTime(Counter) {
-      var entries = [];
+    function addCount(Counter) {
       var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
 
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url: { "$in": entries } }) })
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
         .done(function ({ results }) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.url;
-            var time = item.time;
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
+          if (results.length > 0) {
+            var counter = results[0];
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1}))
+                .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function () {
+                  console.log('Failed to create');
+                });
+            
           }
         })
-        .fail(function ({ responseJSON }) {
-          console.log("LeanCloud Counter Error: " + responseJSON.code + " " + responseJSON.error);
-        });
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
     }
     
 
@@ -1442,9 +1643,7 @@
             });
           };
           
-          if ($('.post-title-link').length >= 1) {
-            showTime(Counter);
-          }
+          addCount(Counter);
           
         })
     });
