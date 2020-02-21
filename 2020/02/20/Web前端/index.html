@@ -182,12 +182,10 @@
 <meta property="og:site_name" content="Jeremy&#39;s Blog">
 <meta property="og:description" content="Web前端B/S架构 静态资源 使用静态网页开发技术发布的资源 特点： 所有用户访问，得到的结果是一样的 如：文本、图片、音频、视频，HTML、CSS、Javascript 如果用户请求的是静态资源，那么服务器会直接将静态资源发送给浏览器，浏览器内置了静态资源的解析引擎，可以展示静态资源     动态资源 使用动态网页即时发布的资源 特点： 所有用户访问，得到的结果可能不一样 如：jsp/serv">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://coderjeremy.github.io/2020/02/20/Web前端/图片地址">
-<meta property="og:updated_time" content="2020-02-20T12:41:21.946Z">
+<meta property="og:updated_time" content="2020-02-20T13:33:25.102Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Web前端">
 <meta name="twitter:description" content="Web前端B/S架构 静态资源 使用静态网页开发技术发布的资源 特点： 所有用户访问，得到的结果是一样的 如：文本、图片、音频、视频，HTML、CSS、Javascript 如果用户请求的是静态资源，那么服务器会直接将静态资源发送给浏览器，浏览器内置了静态资源的解析引擎，可以展示静态资源     动态资源 使用动态网页即时发布的资源 特点： 所有用户访问，得到的结果可能不一样 如：jsp/serv">
-<meta name="twitter:image" content="https://coderjeremy.github.io/2020/02/20/Web前端/图片地址">
 
 
 
@@ -468,7 +466,7 @@
                 
               
 
-              <time title="创建时间：2020-02-20 20:37:49 / 修改时间：20:41:21" itemprop="dateCreated datePublished" datetime="2020-02-20T20:37:49+08:00">2020-02-20</time>
+              <time title="创建时间：2020-02-20 20:37:49 / 修改时间：21:33:25" itemprop="dateCreated datePublished" datetime="2020-02-20T20:37:49+08:00">2020-02-20</time>
             
 
             
@@ -536,7 +534,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">12 分钟</span>
+                <span title="阅读时长">11 分钟</span>
               
             </div>
           
@@ -572,11 +570,13 @@
 <li>特点：<ul>
 <li>所有用户访问，得到的结果可能不一样</li>
 <li>如：jsp/servlet、php、asp…</li>
-<li>如果用户请求的是动态资源，那么服务器会执行动态资源，转换为静态资源，再发送给浏览器<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3></li>
+<li>如果用户请求的是动态资源，那么服务器会执行动态资源，转换为静态资源，再发送给浏览器</li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
 <li>Hyper Text Markup Language 超文本标记语言<ul>
 <li>超文本：超文本是用超链接的方法，将各种不同空间的文字信息组织再一起的网状文本。</li>
 <li>标记语言：由标签构成的语言，标记语言不是编程语言</li>
@@ -610,7 +610,8 @@
 <li><code>&lt;h1&gt;to&lt;h6&gt;</code>：标题标签（h1~h6字体大小逐渐递减）</li>
 <li><code>&lt;p&gt;&lt;/p&gt;</code>：段落标签</li>
 <li><code>&lt;br/&gt;</code>：换行标签</li>
-<li><code>&lt;hr&gt;</code>：展示一条水平线<ul>
+<li><p><code>&lt;hr&gt;</code>：展示一条水平线</p>
+<ul>
 <li>属性：<ul>
 <li>color：颜色</li>
 <li>width：宽度</li>
@@ -620,10 +621,12 @@
 </li>
 </ul>
 </li>
-<li><code>&lt;b&gt;&lt;/b&gt;</code>：字体加粗</li>
+<li><p><code>&lt;b&gt;&lt;/b&gt;</code>：字体加粗</p>
+</li>
 <li><code>&lt;i&gt;&lt;/i&gt;</code>：字体斜体</li>
 <li><code>&lt;font&gt;&lt;/font&gt;</code>：字体标签</li>
-<li><code>&lt;center&gt;</code>：文本居中,相对于父元素<ul>
+<li><p><code>&lt;center&gt;</code>：文本居中,相对于父元素</p>
+<ul>
 <li>属性：<ul>
 <li>color：颜色</li>
 <li>size：大小</li>
@@ -632,41 +635,46 @@
 </li>
 </ul>
 </li>
-<li>属性定义<ul>
-<li>color：<ul>
+<li><p>属性定义</p>
+<ul>
+<li><p>color：</p>
+<ul>
 <li>英文单词</li>
 <li>rgb(值1，值2，值3)：值的范围：0~255  如  rgb(0,0,255)</li>
 <li>#值1值2值3：值的范围：00~FF之间。如： #FF00FF</li>
 </ul>
 </li>
-<li>width：<ul>
+<li><p>width：</p>
+<ul>
 <li>数值，单位默认px像素</li>
-<li>数值%：占比相对于父元素的比例<blockquote>
-<p>特殊字符表：空格：<code>&amp;nbsp;</code></p>
-</blockquote>
-</li>
+<li>数值%：占比相对于父元素的比例</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+<pre><code>&gt; 特殊字符表：空格：`&amp;nbsp;`
+</code></pre><ul>
 <li><p>图片标签</p>
 <ul>
-<li><code>&lt;img/&gt;</code>：展示图片<ul>
+<li><p><code>&lt;img/&gt;</code>：展示图片</p>
+<ul>
 <li>属性：<ul>
 <li>src：指定图片的位置</li>
-<li>alt：规定在图像无法显示时的替代文本<br><img src="图片地址" alt="图片名称"><blockquote>
+<li>alt：规定在图像无法显示时的替代文本</li>
+</ul>
+</li>
+<li><code>&lt;img src=&quot;图片地址&quot; alt=&quot;图片名称&quot;&gt;</code></li>
+</ul>
+<blockquote>
 <p>相对路径：以.开头的路径</p>
 <ul>
 <li>./：代表当前目录</li>
 <li>../：代表上一级目录</li>
 </ul>
 </blockquote>
-</li>
-</ul>
-</li>
-</ul>
 </li>
 </ul>
 </li>
@@ -710,7 +718,8 @@
 </li>
 <li><p>表格标签</p>
 <ul>
-<li><code>&lt;table&gt;&lt;/table&gt;</code><ul>
+<li><p><code>&lt;table&gt;&lt;/table&gt;</code></p>
+<ul>
 <li>width：宽度</li>
 <li>border：边框</li>
 <li>cellpadding：定义内容和单元格的距离</li>
@@ -719,17 +728,20 @@
 <li>align：对齐方式</li>
 </ul>
 </li>
-<li><code>&lt;tr&gt;&lt;/tr&gt;</code>：定义行<ul>
+<li><p><code>&lt;tr&gt;&lt;/tr&gt;</code>：定义行</p>
+<ul>
 <li>bgcolor：背景色</li>
 <li>align：对齐方式</li>
 </ul>
 </li>
-<li><code>&lt;td&gt;&lt;/td&gt;</code>：定义单元格<ul>
+<li><p><code>&lt;td&gt;&lt;/td&gt;</code>：定义单元格</p>
+<ul>
 <li>colspan：合并列</li>
 <li>rowspan：合并行</li>
 </ul>
 </li>
-<li><code>&lt;th&gt;&lt;/th&gt;</code>：定义表头单元格</li>
+<li><p><code>&lt;th&gt;&lt;/th&gt;</code>：定义表头单元格</p>
+</li>
 <li><code>&lt;caption&gt;&lt;/caption&gt;</code>：表格标题</li>
 <li><code>&lt;thead&gt;&lt;/thead&gt;</code>：表示表格的头部分</li>
 <li><code>&lt;tbody&gt;&lt;/tbody&gt;</code>：表示表格的体部分</li>
@@ -767,51 +779,65 @@
 </li>
 <li><p>表单项标签</p>
 <ul>
-<li><code>input</code>：可以勇敢type属性值，改变元素展示的样式<ul>
-<li><code>type</code>属性：<ul>
-<li>text：文本输入框，默认值</li>
+<li><p><code>input</code>：可以勇敢type属性值，改变元素展示的样式</p>
+<ul>
+<li><p><code>type</code>属性：</p>
+<ul>
+<li><p>text：文本输入框，默认值</p>
+</li>
+<li><p>password：密码输入框</p>
+</li>
+<li><p>radio：单选框 </p>
+<ul>
+<li>要想多个单选框实现单选的效果，则多个单选框的<code>name属性</code>必须一样</li>
+<li>一般会给每一个单选框提供value属性，指定其被选中后提交的值</li>
+<li>checked属性：可以指定默认值<code>cheecked=&quot;checked&quot;</code>，可以简写<code>checked</code></li>
+</ul>
+</li>
+<li><p>checkbox：复选框</p>
+<ul>
+<li>一般会给每一个单选框提供value属性，指定其被选中后提交的值</li>
+<li>checked属性：可以指定默认值</li>
+</ul>
+</li>
+<li><p>file：文件选择框</p>
+</li>
+<li><p>hidden：隐藏域，用于提交一些信息</p>
+</li>
+<li><p>按钮：</p>
+<ul>
+<li>submit：提交按钮，可以提交表单</li>
+<li>button：普通按钮</li>
+<li>image：图片提交按钮（src属性指定图片的路径）</li>
+</ul>
+</li>
+<li><p>date：定义 date 控件（包括年、月、日，不包括时间）。</p>
+</li>
+<li>email：定义用于 e-mail 地址的字段。</li>
+<li>color：定义拾色器 </li>
+<li>number：定义用于输入数字的字段。 </li>
+</ul>
+</li>
+<li><p><code>placeholder</code>：指定输入框的提示信息，当输入框的内容发生改变，会自动清空提示信息</p>
+</li>
+</ul>
+</li>
+<li><p><code>select</code>：下拉列表</p>
+<ul>
+<li>子元素：<code>option</code>，指定列表项</li>
+</ul>
+</li>
+<li><p><code>textarea</code>：文本域</p>
+<ul>
+<li>cols：指定列数，每一行有多少个字符</li>
+<li>rows：默认多少行。</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-<pre><code>        - password：密码输入框
-        - radio：单选框 
-            &gt; - 要想多个单选框实现单选的效果，则多个单选框的`name属性`必须一样
-            &gt; - 一般会给每一个单选框提供value属性，指定其被选中后提交的值
-            &gt; - checked属性：可以指定默认值`cheecked=&quot;checked&quot;`，可以简写`checked`
-
-        - checkbox：复选框
-            &gt; - 一般会给每一个单选框提供value属性，指定其被选中后提交的值
-            &gt; - checked属性：可以指定默认值
-
-        - file：文件选择框
-        - hidden：隐藏域，用于提交一些信息
-        - 按钮：
-            - submit：提交按钮，可以提交表单
-            - button：普通按钮
-            - image：图片提交按钮（src属性指定图片的路径）
-
-        - date：定义 date 控件（包括年、月、日，不包括时间）。
-        - email：定义用于 e-mail 地址的字段。
-        - color：定义拾色器 
-        - number：定义用于输入数字的字段。 
-
-    - `placeholder`：指定输入框的提示信息，当输入框的内容发生改变，会自动清空提示信息
-
-- `select`：下拉列表
-    - 子元素：`option`，指定列表项
-
-- `textarea`：文本域
-    - cols：指定列数，每一行有多少个字符
-    - rows：默认多少行。
-
-
-
-- `label`：指定输入项的文字描述信息
-    &gt;  label的for属性一般会和 input 的 id属性值 对应。如果对应了，则点击label区域，会让input输入框获取焦点。`&lt;label for=&quot;username&quot;&gt;&lt;/label&gt;`
+<pre><code>- `label`：指定输入项的文字描述信息
+    - label的for属性一般会和 input 的 id属性值 对应。如果对应了，则点击label区域，会让input输入框获取焦点。`&lt;label for=&quot;username&quot;&gt;&lt;/label&gt;`
 </code></pre><h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><ul>
 <li><p>概念：Cascading Style Sheets 层叠样式表</p>
 <ul>
@@ -840,7 +866,7 @@
 <li><p>内部样式</p>
 <ul>
 <li>在head标签内，定义style标签，style标签的标签体内容就是css代码</li>
-<li>如<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    div&#123;</span></span><br><span class="line"><span class="undefined">        color:blue;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    </span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>hello css<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li>如<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    div&#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">color</span><span class="selector-pseudo">:blue</span>;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    </span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>hello css<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -855,7 +881,7 @@
 <li><p>注意：</p>
 <ul>
 <li>三种方式，css作用域越来越大</li>
-<li>3种格式可以写为：  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    @import "css/a.css";</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li>3种格式可以写为：  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">    @<span class="keyword">import</span> <span class="string">"css/a.css"</span>;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -1052,43 +1078,59 @@
 </li>
 <li><p>运算符</p>
 <ol>
-<li>一元运算符：只有一个运算数的运算符<ul>
+<li><p>一元运算符：只有一个运算数的运算符</p>
+<ul>
 <li><code>++，-- ， +(正号)</code></li>
-<li>在JS中，如果运算数不是运算符所要求的类型，那么JS引擎会自动地将运算数进行类型转换<blockquote>
-<p>String转number:按照字面值转换，如果字面值不是数字，则转为NaN</p>
-</blockquote>
+<li>在JS中，如果运算数不是运算符所要求的类型，那么JS引擎会自动地将运算数进行类型转换。</li>
+<li>String转number:按照字面值转换，如果字面值不是数字，则转为NaN</li>
+</ul>
 </li>
+<li><p>算数运算符</p>
+<ul>
+<li><code>+ - * / % ...</code></li>
+</ul>
+</li>
+<li><p>赋值运算符</p>
+<ul>
+<li><code>= += -+....</code></li>
+</ul>
+</li>
+<li><p>比较运算符</p>
+<ul>
+<li><code>&gt; &lt; &gt;= &lt;= == ===(全等于)</code></li>
+<li>比较方式<ul>
+<li>类型相同：直接比较<ul>
+<li>字符串：按照字典顺序比较。按位逐一比较，直到得出大小为止</li>
+</ul>
+</li>
+<li>类型不同：先进行类型转换，再比较(“123”==123)<ul>
+<li><code>===全等于</code> 在比较之前，先判断类型，如果类型不一致，则直接会返回false</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>逻辑运算符  </p>
+<ul>
+<li><code>&amp;&amp; || !</code></li>
+<li>其他类型转boolean<ul>
+<li>number：0或NaN为false，其他为true</li>
+<li>string：除了空字符串，其他都是true</li>
+<li>null/undefined：false</li>
+<li>对象：所有对象都为true</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>三元运算符</p>
+<ul>
+<li><code>表达式? 值1:值2;</code></li>
+<li>判断表达式的值，如果是true则取值1，如果是false则取值2</li>
 </ul>
 </li>
 </ol>
 </li>
-</ul>
-<pre><code>2. 算数运算符
-    - `+ - * / % ...`
-
-3. 赋值运算符
-    - `= += -+....`
-
-4. 比较运算符
-    - `&gt; &lt; &gt;= &lt;= == ===(全等于)`
-    - 比较方式
-        - 类型相同：直接比较
-            - 字符串：按照字典顺序比较。按位逐一比较，直到得出大小为止
-        - 类型不同：先进行类型转换，再比较(&quot;123&quot;==123)
-            - `===全等于` 在比较之前，先判断类型，如果类型不一致，则直接会返回false
-
-5. 逻辑运算符  
-    - `&amp;&amp; || !`
-    - 其他类型转boolean
-        - number：0或NaN为false，其他为true
-        - string：除了空字符串，其他都是true
-        - null/undefined：false
-        - 对象：所有对象都为true
-
-6. 三元运算符
-    - `表达式? 值1:值2;`
-    - 判断表达式的值，如果是true则取值1，如果是false则取值2
-</code></pre><ul>
 <li><p>流程控制语句</p>
 <ol>
 <li>if…else…</li>
@@ -1460,7 +1502,7 @@
 <li>removeAttribute()：删除属性</li>
 <li>setAttribute()：设置属性</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span>&gt;</span>点我进入百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">id</span>=<span class="string">"btn1"</span> <span class="attr">value</span>=<span class="string">"快点我一下"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">id</span>=<span class="string">"btn2"</span> <span class="attr">value</span>=<span class="string">"点我删除"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">/*设置Element对象属性*/</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> btn1 = <span class="built_in">document</span>.getElementById(<span class="string">"btn1"</span>);</span></span><br><span class="line"><span class="javascript">    btn1.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> ele_a = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"a"</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="javascript">        ele_a.setAttribute(<span class="string">"href"</span>,<span class="string">"https://www.baidu.com"</span>);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="javascript">    <span class="comment">/*删除Element对象属性*/</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> btn2 = <span class="built_in">document</span>.getElementById(<span class="string">"btn2"</span>);</span></span><br><span class="line"><span class="javascript">    btn2.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> ele_a = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"a"</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="javascript">        ele_a.removeAttribute(<span class="string">"href"</span>);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span>&gt;</span>点我进入百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">id</span>=<span class="string">"btn1"</span> <span class="attr">value</span>=<span class="string">"快点我一下"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">id</span>=<span class="string">"btn2"</span> <span class="attr">value</span>=<span class="string">"点我删除"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">    <span class="comment">/*设置Element对象属性*/</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> btn1 = <span class="built_in">document</span>.getElementById(<span class="string">"btn1"</span>);</span></span><br><span class="line"><span class="actionscript">    btn1.onclick = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> ele_a = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"a"</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="actionscript">        ele_a.setAttribute(<span class="string">"href"</span>,<span class="string">"https://www.baidu.com"</span>);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="actionscript">    <span class="comment">/*删除Element对象属性*/</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> btn2 = <span class="built_in">document</span>.getElementById(<span class="string">"btn2"</span>);</span></span><br><span class="line"><span class="actionscript">    btn2.onclick = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> ele_a = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"a"</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="actionscript">        ele_a.removeAttribute(<span class="string">"href"</span>);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </li>
@@ -1484,7 +1526,7 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="comment">/*删除子节点*/</span></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> ele_a = <span class="built_in">document</span>.getElementById(<span class="string">"del"</span>);</span></span><br><span class="line"><span class="javascript">ele_a.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> div1 = <span class="built_in">document</span>.getElementById(<span class="string">"div1"</span>);</span></span><br><span class="line"><span class="undefined">    div1.removeChild(div2);</span></span><br><span class="line"><span class="undefined">&#125;;</span></span><br><span class="line"><span class="javascript"><span class="comment">/*添加子节点*/</span></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> div3 = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span></span><br><span class="line"><span class="javascript">div3.setAttribute(<span class="string">"id"</span>,<span class="string">"div3"</span>);</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> ele_b = <span class="built_in">document</span>.getElementById(<span class="string">"add"</span>);</span></span><br><span class="line"><span class="javascript">ele_b.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> div1 = <span class="built_in">document</span>.getElementById(<span class="string">"div1"</span>);</span></span><br><span class="line"><span class="undefined">    div1.append(div3);</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">    <span class="comment">/*删除子节点*/</span></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> ele_a = <span class="built_in">document</span>.getElementById(<span class="string">"del"</span>);</span></span><br><span class="line"><span class="actionscript">ele_a.onclick = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> div1 = <span class="built_in">document</span>.getElementById(<span class="string">"div1"</span>);</span></span><br><span class="line"><span class="undefined">    div1.removeChild(div2);</span></span><br><span class="line"><span class="undefined">&#125;;</span></span><br><span class="line"><span class="actionscript"><span class="comment">/*添加子节点*/</span></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> div3 = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span></span><br><span class="line"><span class="actionscript">div3.setAttribute(<span class="string">"id"</span>,<span class="string">"div3"</span>);</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> ele_b = <span class="built_in">document</span>.getElementById(<span class="string">"add"</span>);</span></span><br><span class="line"><span class="actionscript">ele_b.onclick = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> div1 = <span class="built_in">document</span>.getElementById(<span class="string">"div1"</span>);</span></span><br><span class="line"><span class="undefined">    div1.append(div3);</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -1660,6 +1702,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2020/02/21/Bootstrap/" rel="prev" title="Bootstrap">
+                Bootstrap <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -1735,7 +1781,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">29</span>
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1837,7 +1883,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1936,7 +1990,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">160k</span>
+    <span title="站点总字数">167k</span>
   
 
   
@@ -1945,7 +1999,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:26</span>
+    <span title="站点阅读时长">2:32</span>
   
 </div>
 
