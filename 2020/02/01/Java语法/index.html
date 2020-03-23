@@ -182,7 +182,7 @@
 <meta property="og:site_name" content="Jeremy&#39;s Blog">
 <meta property="og:description" content="Java初步字节 位（bit): 一个数字0或1 字节（Byte）: 8位=1字节，这是数据存储的最小单位 1KB = 1024 Byte,1MB = 1024 KB  命令提示符 MS-DOS(Microsoft Disk Operating System) 启动 ：win + R 切换盘符 ： [盘符]: 进入文件： cd [文件名] 退回上一层：cd .. 退回根目录：cd \ 显示文件列表">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-20T12:49:44.863Z">
+<meta property="og:updated_time" content="2020-03-13T17:21:32.751Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java语法">
 <meta name="twitter:description" content="Java初步字节 位（bit): 一个数字0或1 字节（Byte）: 8位=1字节，这是数据存储的最小单位 1KB = 1024 Byte,1MB = 1024 KB  命令提示符 MS-DOS(Microsoft Disk Operating System) 启动 ：win + R 切换盘符 ： [盘符]: 进入文件： cd [文件名] 退回上一层：cd .. 退回根目录：cd \ 显示文件列表">
@@ -483,7 +483,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-20 20:49:44" itemprop="dateModified" datetime="2020-02-20T20:49:44+08:00">2020-02-20</time>
+                <time title="修改时间：2020-03-14 01:21:32" itemprop="dateModified" datetime="2020-03-14T01:21:32+08:00">2020-03-14</time>
               
             
           </span>
@@ -2382,7 +2382,43 @@
 </li>
 </ul>
 <h4 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h4><ul>
-<li><code>java.lang.Thread.State</code><h5 id="六种状态"><a href="#六种状态" class="headerlink" title="六种状态"></a>六种状态</h5>| <strong>线程状态</strong> | <strong>导致状态发生的条件</strong> |<br>|—|—|<br>|NEW(新建)|线程刚被创建，但是并未启动。还没调用start方法|<br>|Runnable(可运行)|线程可以在Java虚拟机中运行的状态，可能正在运行自己代码，也可能没有，这取决于CPU|<br>|Blocked(锁阻塞)|当一个线程试图获取一个对象锁，而对象锁被其他的线程持有，则该线程进入Blocked状态；当线程持有锁时，该线程变成Runnable状态|<br>|Waiting(无限等待)|一个线程在等待另一个线程执行（唤醒）动作时，该线程进入Waiting状态，进入这个状态后是不能自动唤醒的，必须等待另一个线程调用notify或者notifyAll方法才能够唤醒|<br>|TimedWaiting(计时等待)|同waiting状态，有几个方法有超时参数，调用他们将进入TimeWaiting状态，这一状态将一致保持到超时期满或者接收到唤醒通知。带有超时参数的常用方法有：Thread.sleep(),Object.wait()|<br>|Teminated(被终止)|因为run方法正常退出而死亡，或者因为没有捕获的异常终止了run方法而死亡|<h5 id="Timed-Waiting-计时等待"><a href="#Timed-Waiting-计时等待" class="headerlink" title="Timed Waiting 计时等待"></a>Timed Waiting 计时等待</h5></li>
+<li><code>java.lang.Thread.State</code><h5 id="六种状态"><a href="#六种状态" class="headerlink" title="六种状态"></a>六种状态</h5></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>线程状态</th>
+<th>导致状态发生的条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NEW(新建)</td>
+<td>线程刚被创建，但是并未启动。还没调用start方法</td>
+</tr>
+<tr>
+<td>Runnable(可运行)</td>
+<td>线程可以在Java虚拟机中运行的状态，可能正在运行自己代码，也可能没有，这取决于CPU</td>
+</tr>
+<tr>
+<td>Blocked(锁阻塞)</td>
+<td>当一个线程试图获取一个对象锁，而对象锁被其他的线程持有，则该线程进入Blocked状态；当线程持有锁时，该线程变成Runnable状态</td>
+</tr>
+<tr>
+<td>Waiting(无限等待)</td>
+<td>一个线程在等待另一个线程执行（唤醒）动作时，该线程进入Waiting状态，进入这个状态后是不能自动唤醒的，必须等待另一个线程调用notify或者notifyAll方法才能够唤醒</td>
+</tr>
+<tr>
+<td>TimedWaiting(计时等待)</td>
+<td>同waiting状态，有几个方法有超时参数，调用他们将进入TimeWaiting状态，这一状态将一致保持到超时期满或者接收到唤醒通知。带有超时参数的常用方法有：Thread.sleep(),Object.wait()</td>
+</tr>
+<tr>
+<td>Teminated(被终止)</td>
+<td>因为run方法正常退出而死亡，或者因为没有捕获的异常终止了run方法而死亡</td>
+</tr>
+</tbody>
+</table>
+<h5 id="Timed-Waiting-计时等待"><a href="#Timed-Waiting-计时等待" class="headerlink" title="Timed Waiting 计时等待"></a>Timed Waiting 计时等待</h5><ul>
 <li>Thread.sleep(long m)；强制当前正在执行的线程休眠，线程进入Runnable/Blocked状态</li>
 <li>锁对象.wait(long m)；在毫秒值结束之后，还没有被notify唤醒，就会自动醒来，线程进入Runnable/Blocked状态</li>
 <li>注意；sleep()中指定的时间是线程不会运行的最短时间。因此，sleep()方法不能保证该线程睡眠到期后就开始立刻执行。<h5 id="Blocked-锁阻塞"><a href="#Blocked-锁阻塞" class="headerlink" title="Blocked 锁阻塞"></a>Blocked 锁阻塞</h5></li>
@@ -2594,16 +2630,37 @@
 </li>
 <li>数据类型；<ul>
 <li>字节流 ：以字节为单位，读写数据的流。</li>
-<li>字符流 ：以字符为单位，读写数据的流。<blockquote>
-<p>1字符=2字节 1字节=8位</p>
-</blockquote>
+<li>字符流 ：以字符为单位，读写数据的流。<ul>
+<li>1字符=2字节 1字节=8位</li>
+</ul>
 </li>
 </ul>
 </li>
-<li><p>顶级父类：</p>
-<p>  ||输入流|输出流|<br>  |—|—|—|<br>  |<strong>字节流</strong>|字节输入流<br><code>InputStream</code>|字节输出流<br><code>OutputStream</code>|<br>  |<strong>字符流</strong>|字符输入流<br><code>Reader</code>|字符输出流<br><code>Writer</code>|</p>
-</li>
 </ul>
+<ul>
+<li>顶级父类：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>输入流</th>
+<th>输出流</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>字节流</td>
+<td>字节输入流<br><code>InputStream</code></td>
+<td>字节输出流<br><code>OutputStream</code></td>
+</tr>
+<tr>
+<td>字符流</td>
+<td>字符输入流<br><code>Reader</code></td>
+<td>字符输出流<br><code>Writer</code></td>
+</tr>
+</tbody>
+</table>
 <h5 id="字节流"><a href="#字节流" class="headerlink" title="字节流"></a>字节流</h5><h6 id="字节输出流"><a href="#字节输出流" class="headerlink" title="字节输出流"></a>字节输出流</h6><ul>
 <li><code>java.io.OutputStream</code>；抽象类表示字节输出流的所有类的超类</li>
 <li>常用方法；<ul>
@@ -3115,7 +3172,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -3267,7 +3324,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">52</span>
+                      
+                    
+                    <span class="site-state-item-count">53</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -3366,7 +3425,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">219k</span>
+    <span title="站点总字数">220k</span>
   
 
   
@@ -3375,7 +3434,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">3:19</span>
+    <span title="站点阅读时长">3:20</span>
   
 </div>
 

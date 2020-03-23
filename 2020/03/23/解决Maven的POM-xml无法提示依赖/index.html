@@ -174,18 +174,18 @@
 
 
 
-  <meta name="description" content="分类 值类型：存放到栈中，每次存取都会在内存中操作 引用类型：首先在栈中创建一个引用变量，绕后在堆中创建对象本身，再把这个对象所在内存的首地址赋给引用变量。  值类型- 整型 - 浮点型 - 字符型 - 布尔型 - 枚举型 整型- sbyte ：有符号，1字节， - byte  ：无符号，1字节 - short ：有符号，2字节 - ushort ：无符号，2字节 - int ：有符号，4字节（C">
-<meta name="keywords" content="C#">
+  <meta name="description" content="问题原因 Maven本地仓库无法索引，更新远程仓库失败。 下图为正常更新后状态   解决方法第一步 查看本地Maven的配置文件是否配置了镜像（一般大家会配置阿里云镜像） 如果你配置的地址是&amp;lt;url&amp;gt;http://maven.aliyun.com/nexus/content/groups/public/&amp;lt;/url&amp;gt;，修改该url地址（此url访问阿里云的镜像下的 .inde">
+<meta name="keywords" content="maven,idea">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C#基础-02(语法)">
-<meta property="og:url" content="https://coderjeremy.github.io/2019/12/31/C-基础-02-语法/index.html">
+<meta property="og:title" content="解决IDEA 2019.3 maven pom.xml依赖无法自动提示">
+<meta property="og:url" content="https://coderjeremy.github.io/2020/03/23/解决Maven的POM-xml无法提示依赖/index.html">
 <meta property="og:site_name" content="Jeremy&#39;s Blog">
-<meta property="og:description" content="分类 值类型：存放到栈中，每次存取都会在内存中操作 引用类型：首先在栈中创建一个引用变量，绕后在堆中创建对象本身，再把这个对象所在内存的首地址赋给引用变量。  值类型- 整型 - 浮点型 - 字符型 - 布尔型 - 枚举型 整型- sbyte ：有符号，1字节， - byte  ：无符号，1字节 - short ：有符号，2字节 - ushort ：无符号，2字节 - int ：有符号，4字节（C">
+<meta property="og:description" content="问题原因 Maven本地仓库无法索引，更新远程仓库失败。 下图为正常更新后状态   解决方法第一步 查看本地Maven的配置文件是否配置了镜像（一般大家会配置阿里云镜像） 如果你配置的地址是&amp;lt;url&amp;gt;http://maven.aliyun.com/nexus/content/groups/public/&amp;lt;/url&amp;gt;，修改该url地址（此url访问阿里云的镜像下的 .inde">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-31T09:11:30.223Z">
+<meta property="og:updated_time" content="2020-03-23T02:01:04.438Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C#基础-02(语法)">
-<meta name="twitter:description" content="分类 值类型：存放到栈中，每次存取都会在内存中操作 引用类型：首先在栈中创建一个引用变量，绕后在堆中创建对象本身，再把这个对象所在内存的首地址赋给引用变量。  值类型- 整型 - 浮点型 - 字符型 - 布尔型 - 枚举型 整型- sbyte ：有符号，1字节， - byte  ：无符号，1字节 - short ：有符号，2字节 - ushort ：无符号，2字节 - int ：有符号，4字节（C">
+<meta name="twitter:title" content="解决IDEA 2019.3 maven pom.xml依赖无法自动提示">
+<meta name="twitter:description" content="问题原因 Maven本地仓库无法索引，更新远程仓库失败。 下图为正常更新后状态   解决方法第一步 查看本地Maven的配置文件是否配置了镜像（一般大家会配置阿里云镜像） 如果你配置的地址是&amp;lt;url&amp;gt;http://maven.aliyun.com/nexus/content/groups/public/&amp;lt;/url&amp;gt;，修改该url地址（此url访问阿里云的镜像下的 .inde">
 
 
 
@@ -194,7 +194,7 @@
 
 
 
-  <link rel="canonical" href="https://coderjeremy.github.io/2019/12/31/C-基础-02-语法/"/>
+  <link rel="canonical" href="https://coderjeremy.github.io/2020/03/23/解决Maven的POM-xml无法提示依赖/"/>
 
 
 
@@ -204,7 +204,7 @@
   };
 </script>
 
-  <title>C#基础-02(语法) | Jeremy's Blog</title>
+  <title>解决IDEA 2019.3 maven pom.xml依赖无法自动提示 | Jeremy's Blog</title>
   
 
 
@@ -424,7 +424,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://coderjeremy.github.io/2019/12/31/C-基础-02-语法/">
+    <link itemprop="mainEntityOfPage" href="https://coderjeremy.github.io/2020/03/23/解决Maven的POM-xml无法提示依赖/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴健伟_Jeremy">
@@ -441,7 +441,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">C#基础-02(语法)
+          <h1 class="post-title" itemprop="name headline">解决IDEA 2019.3 maven pom.xml依赖无法自动提示
               
             
           </h1>
@@ -466,7 +466,7 @@
                 
               
 
-              <time title="创建时间：2019-12-31 15:47:31 / 修改时间：17:11:30" itemprop="dateCreated datePublished" datetime="2019-12-31T15:47:31+08:00">2019-12-31</time>
+              <time title="创建时间：2020-03-23 09:51:04 / 修改时间：10:01:04" itemprop="dateCreated datePublished" datetime="2020-03-23T09:51:04+08:00">2020-03-23</time>
             
 
             
@@ -485,8 +485,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/12/31/C-基础-02-语法/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/12/31/C-基础-02-语法/" itemprop="commentCount"></span>
+                <a href="/2020/03/23/解决Maven的POM-xml无法提示依赖/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/03/23/解决Maven的POM-xml无法提示依赖/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -494,7 +494,7 @@
 
           
           
-             <span id="/2019/12/31/C-基础-02-语法/" class="leancloud_visitors" data-flag-title="C#基础-02(语法)">
+             <span id="/2020/03/23/解决Maven的POM-xml无法提示依赖/" class="leancloud_visitors" data-flag-title="解决IDEA 2019.3 maven pom.xml依赖无法自动提示">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -520,7 +520,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">491</span>
+                <span title="本文字数">963</span>
               
 
               
@@ -554,34 +554,49 @@
       
 
       
-        <h1 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h1><ul>
-<li>值类型：存放到栈中，每次存取都会在内存中操作</li>
-<li>引用类型：首先在栈中创建一个引用变量，绕后在堆中创建对象本身，再把这个对象所在内存的首地址赋给引用变量。</li>
+        <h3 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h3><ul>
+<li>Maven本地仓库无法索引，更新远程仓库失败。</li>
+<li>下图为正常更新后状态</li>
 </ul>
-<h1 id="值类型"><a href="#值类型" class="headerlink" title="值类型"></a>值类型</h1><pre><code>- 整型
-- 浮点型
-- 字符型
-- 布尔型
-- 枚举型
-</code></pre><h2 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h2><pre><code>- sbyte ：有符号，1字节，
-- byte  ：无符号，1字节
-- short ：有符号，2字节
-- ushort ：无符号，2字节
-- int ：有符号，4字节（C#整型 默认值）
-- uint : 无符号，4字节
-- long : 有符号，8字节
-- ulong : 无符号，8字节
-</code></pre><h2 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h2><pre><code>- float ：单精度浮点，4字节，最多保留7位小数，123.45f/123.345F
-- double ： 双精度浮点，8字节，最多保留16位小数，默认double类型
-</code></pre><h2 id="字符型"><a href="#字符型" class="headerlink" title="字符型"></a>字符型</h2><pre><code>- char : 2字节，存放一字符、汉字,单引号表示，&apos;a&apos;
-</code></pre><h2 id="布尔型"><a href="#布尔型" class="headerlink" title="布尔型"></a>布尔型</h2><pre><code>- bool : true/false
-</code></pre><h2 id="枚举型"><a href="#枚举型" class="headerlink" title="枚举型"></a>枚举型</h2><h1 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h1><pre><code>- 类
-- 接口
-- 数组
-- 委托
-- 字符串
-</code></pre><h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h2 id="委托"><a href="#委托" class="headerlink" title="委托"></a>委托</h2><h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><pre><code>- string ： 存放多个字符，双引号表示，“abc”
-</code></pre>
+
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><h4 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h4><ul>
+<li>查看本地Maven的配置文件是否配置了镜像（一般大家会配置阿里云镜像）</li>
+<li>如果你配置的地址是<code>&lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;</code>，修改该url地址（此url访问阿里云的镜像下的 .index 目录为错误路径）</li>
+<li>正确镜像配置如下</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/repositories/central<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h4><ul>
+<li>执行完第一步后，先进行update测试，如果update成功。则无需后面步骤。（Update时，）</li>
+<li>如果不成功，则是网络问题，此时需要使用代理网络（这里不提供科学上网工具）</li>
+</ul>
+<h4 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h4><ul>
+<li>打开科学上网工具，设置为全局Global模式</li>
+<li>打开IE浏览器的Internet选项</li>
+<li>打开局域网设置</li>
+</ul>
+
+<ul>
+<li>查看代理设置端口号（第一个是主机ip，端口号是根据你的科学上网工具决定的，也就是代理端口，也可以<strong>直接通过你的代理工具</strong>查到该信息）</li>
+</ul>
+
+<ul>
+<li>下图是使用代理工具也可以查询到端口</li>
+</ul>
+
+<h4 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h4><ul>
+<li>获取代理的IP和端口后，打开IDEA的maven设置。找到Importing</li>
+<li>添加使用代理配置。 主机号为<strong>127.0.0.1</strong> 和 <strong>端口号</strong>设为你在第三步查到的数据即可</li>
+</ul>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">-DproxySet</span>=<span class="literal">true</span> <span class="attribute">-DproxyHost</span>=127.0.0.1 <span class="attribute">-DproxyPort</span>=7890</span><br></pre></td></tr></table></figure>
+
+<h4 id="第五步"><a href="#第五步" class="headerlink" title="第五步"></a>第五步</h4><ul>
+<li>重启IDEA</li>
+<li>在开启全局代理上网的情况下，再更新一次Maven远程索引</li>
+</ul>
+<blockquote>
+<p>执行上述步骤，本人测试更新成功，如有其他问题可以进行讨论，如遇Jar包无法下载，可以将DproxySet设置为false，或回滚上述所有步骤可解决</p>
+</blockquote>
+
       
     </div>
 
@@ -628,7 +643,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://coderjeremy.github.io/2019/12/31/C-基础-02-语法/" title="C#基础-02(语法)">https://coderjeremy.github.io/2019/12/31/C-基础-02-语法/</a>
+    <a href="https://coderjeremy.github.io/2020/03/23/解决Maven的POM-xml无法提示依赖/" title="解决IDEA 2019.3 maven pom.xml依赖无法自动提示">https://coderjeremy.github.io/2020/03/23/解决Maven的POM-xml无法提示依赖/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -642,7 +657,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/C/" <i class="fa fa-tag"></i> C#</a>
+            <a href="/tags/maven/" <i class="fa fa-tag"></i> maven</a>
+          
+            <a href="/tags/idea/" <i class="fa fa-tag"></i> idea</a>
           
         </div>
       
@@ -655,8 +672,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/29/Git常用指令/" rel="next" title="Git常用指令">
-                <i class="fa fa-chevron-left"></i> Git常用指令
+              <a href="/2020/03/09/Mybatis/" rel="next" title="Mybatis">
+                <i class="fa fa-chevron-left"></i> Mybatis
               </a>
             
           </div>
@@ -664,10 +681,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/02/01/Java语法/" rel="prev" title="Java语法">
-                Java语法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -965,7 +978,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分类"><span class="nav-number">1.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#值类型"><span class="nav-number">2.</span> <span class="nav-text">值类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#整型"><span class="nav-number">2.1.</span> <span class="nav-text">整型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮点型"><span class="nav-number">2.2.</span> <span class="nav-text">浮点型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符型"><span class="nav-number">2.3.</span> <span class="nav-text">字符型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布尔型"><span class="nav-number">2.4.</span> <span class="nav-text">布尔型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#枚举型"><span class="nav-number">2.5.</span> <span class="nav-text">枚举型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引用类型"><span class="nav-number">3.</span> <span class="nav-text">引用类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类"><span class="nav-number">3.1.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口"><span class="nav-number">3.2.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组"><span class="nav-number">3.3.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#委托"><span class="nav-number">3.4.</span> <span class="nav-text">委托</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">3.5.</span> <span class="nav-text">字符串</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题原因"><span class="nav-number">1.</span> <span class="nav-text">问题原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法"><span class="nav-number">2.</span> <span class="nav-text">解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一步"><span class="nav-number">2.1.</span> <span class="nav-text">第一步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二步"><span class="nav-number">2.2.</span> <span class="nav-text">第二步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三步"><span class="nav-number">2.3.</span> <span class="nav-text">第三步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第四步"><span class="nav-number">2.4.</span> <span class="nav-text">第四步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第五步"><span class="nav-number">2.5.</span> <span class="nav-text">第五步</span></a></li></ol></li></ol></div>
             
 
           </div>
