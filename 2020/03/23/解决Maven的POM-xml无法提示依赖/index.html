@@ -182,10 +182,16 @@
 <meta property="og:site_name" content="Jeremy&#39;s Blog">
 <meta property="og:description" content="问题原因 Maven本地仓库无法索引，更新远程仓库失败。 下图为正常更新后状态   解决方法第一步 查看本地Maven的配置文件是否配置了镜像（一般大家会配置阿里云镜像） 如果你配置的地址是&amp;lt;url&amp;gt;http://maven.aliyun.com/nexus/content/groups/public/&amp;lt;/url&amp;gt;，修改该url地址（此url访问阿里云的镜像下的 .inde">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://coderjeremy.github.io/2020/03/23/解决Maven的POM-xml无法提示依赖/1.jpg">
+<meta property="og:image" content="https://coderjeremy.github.io/2020/03/23/解决Maven的POM-xml无法提示依赖/3.jpg">
+<meta property="og:image" content="https://coderjeremy.github.io/2020/03/23/解决Maven的POM-xml无法提示依赖/4.jpg">
+<meta property="og:image" content="https://coderjeremy.github.io/2020/03/23/解决Maven的POM-xml无法提示依赖/2.jpg">
+<meta property="og:image" content="https://coderjeremy.github.io/2020/03/23/解决Maven的POM-xml无法提示依赖/5.jpg">
 <meta property="og:updated_time" content="2020-03-23T02:01:04.438Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决IDEA 2019.3 maven pom.xml依赖无法自动提示">
 <meta name="twitter:description" content="问题原因 Maven本地仓库无法索引，更新远程仓库失败。 下图为正常更新后状态   解决方法第一步 查看本地Maven的配置文件是否配置了镜像（一般大家会配置阿里云镜像） 如果你配置的地址是&amp;lt;url&amp;gt;http://maven.aliyun.com/nexus/content/groups/public/&amp;lt;/url&amp;gt;，修改该url地址（此url访问阿里云的镜像下的 .inde">
+<meta name="twitter:image" content="https://coderjeremy.github.io/2020/03/23/解决Maven的POM-xml无法提示依赖/1.jpg">
 
 
 
@@ -558,7 +564,7 @@
 <li>Maven本地仓库无法索引，更新远程仓库失败。</li>
 <li>下图为正常更新后状态</li>
 </ul>
-
+<img src="/2020/03/23/解决Maven的POM-xml无法提示依赖/1.jpg">
 <h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><h4 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h4><ul>
 <li>查看本地Maven的配置文件是否配置了镜像（一般大家会配置阿里云镜像）</li>
 <li>如果你配置的地址是<code>&lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;</code>，修改该url地址（此url访问阿里云的镜像下的 .index 目录为错误路径）</li>
@@ -574,21 +580,21 @@
 <li>打开IE浏览器的Internet选项</li>
 <li>打开局域网设置</li>
 </ul>
-
+<img src="/2020/03/23/解决Maven的POM-xml无法提示依赖/3.jpg">
 <ul>
 <li>查看代理设置端口号（第一个是主机ip，端口号是根据你的科学上网工具决定的，也就是代理端口，也可以<strong>直接通过你的代理工具</strong>查到该信息）</li>
 </ul>
-
+<img src="/2020/03/23/解决Maven的POM-xml无法提示依赖/4.jpg">
 <ul>
 <li>下图是使用代理工具也可以查询到端口</li>
 </ul>
-
+<img src="/2020/03/23/解决Maven的POM-xml无法提示依赖/2.jpg">
 <h4 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h4><ul>
 <li>获取代理的IP和端口后，打开IDEA的maven设置。找到Importing</li>
 <li>添加使用代理配置。 主机号为<strong>127.0.0.1</strong> 和 <strong>端口号</strong>设为你在第三步查到的数据即可</li>
 </ul>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">-DproxySet</span>=<span class="literal">true</span> <span class="attribute">-DproxyHost</span>=127.0.0.1 <span class="attribute">-DproxyPort</span>=7890</span><br></pre></td></tr></table></figure>
-
+<img src="/2020/03/23/解决Maven的POM-xml无法提示依赖/5.jpg">
 <h4 id="第五步"><a href="#第五步" class="headerlink" title="第五步"></a>第五步</h4><ul>
 <li>重启IDEA</li>
 <li>在开启全局代理上网的情况下，再更新一次Maven远程索引</li>
